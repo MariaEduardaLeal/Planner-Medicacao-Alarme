@@ -1,0 +1,142 @@
+nav {
+    /*a faixa azul que fica no topó da tela*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: #07a3ce;
+    height: 10vh;
+  }
+  
+  .logo {
+    /*O nome planner medicamentos nesse caso*/
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+  
+  }
+  
+  body {
+    background-image: url(img/injection-1974677_1920.jpg);
+  }
+  
+  h1 {
+    /*titulo da pagina*/  
+    font-family: 'Times New Roman', Times, serif;
+  }
+  /*.box está referenciando a box criada em style_alarme.php que possui todos os elementos abaixo de nav dentro dela que esta dentro de um container */
+  .box {
+    width: 100px;
+    /*largura maxima da tela na parte onde esta os inputs e botões*/
+    height: 100px;
+    /*altura maxima da tela na parte onde esta os inputs e botões*/
+  }
+  
+  .box-one {
+    background-color: rgba(255, 255, 255, .7);
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  table {
+    /*tabela em linha*/
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 5px 10px;
+    border: 1px solid black;
+  }
+  
+  th {
+    background-color: #4aa4ee;
+    color: white;
+  }
+  
+  /*linha par*/
+  tr:nth-child(odd) {
+    background-color: #ddd;
+  }
+  
+  /*linha impar*/
+  tr:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  /*Configura todas as caracteristicas de elementos do tipo link*/
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+    /*Com isso levará 0.3 degundos para ser aplicada a opacidade determinada em a:hover*/
+  }
+  
+  /*Configura a opacidade de todos os elementos do tipo link*/
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  /* Define um estilo para os botões */
+  button[type="submit"] {
+    background-color: #4aa4ee;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0062cc;
+  }
+  
+  /* Define um estilo para o botão Voltar */
+  form:last-of-type button[type="submit"] {
+    background-color: #f44336;
+  }
+  
+  form:last-of-type button[type="submit"]:hover {
+    background-color: #24434e;
+  }
+  
+  
+  .my-table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  
+  }
+  
+  .my-table th,
+  .my-table td {
+    padding: 10px;
+    border: 1px solid black;
+  }
+  
+  .my-table th {
+    background-color: #4A90E2;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .my-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .my-table tr:hover {
+    background-color: #ddd;
+  }
+
+  #link_excluir{
+    color: black;
+  }

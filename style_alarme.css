@@ -1,0 +1,136 @@
+body {
+    /*configura tudo que fica no corpo da pagina que nesse caso usei para colocar uma imagem centralizada*/
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    background-image: url("img/injection-1974677_1920.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  * {
+    /* *ignora todas as formatações de css da pagina na web*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  a {
+    /*Configura todas as caracteristicas de elementos do tipo link*/
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+    /*Com isso levará 0.3 degundos para ser aplicada a opacidade determinada em a:hover*/
+  }
+  
+  a:hover {
+    /*Configura a opacidade de todos os elementos do tipo link*/
+    opacity: 0.7;
+  }
+  
+  .logo {
+    /*O nome planner medicamentos nesse caso*/
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+  
+  }
+  
+  nav {
+    /*a faixa azul que fica no topó da tela*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: #07a3ce;
+    height: 10vh;
+  }
+  
+  /*.box está referenciando a box criada em style_alarme.php que possui todos os elementos abaixo de nav dentro dela que esta dentro de um container */
+  .box {
+    width: 100px;
+    /*largura maxima da tela na parte onde esta os inputs e botões*/
+    height: 100px;
+    /*altura maxima da tela na parte onde esta os inputs e botões*/
+  }
+  
+  .box-one {
+    background-color: rgba(255, 255, 255, .7);
+    /*rgba para controlar a cor e a opacidade ao mesmo tempo*/
+  }
+  
+  input {
+    /*Campo onde o usuario ira colocar informações pedidas e necessárias*/
+    padding: 10px;
+    /*padding: 10px;: Define a quantidade de espaço entre o conteúdo interno do elemento input e sua borda. Nesse caso, 10 pixels de espaço estão sendo adicionados ao redor do conteúdo interno do elemento input.*/
+    border: 1px solid #cccccc;
+    /*border: 1px solid #cccccc;: Define a aparência da borda do elemento input. Nesse caso, a borda terá 1 pixel de largura e será sólida, com uma cor de #cccccc (um tom de cinza claro).*/
+    border-radius: 5px;
+    /*border-radius: 5px;: Define o raio dos cantos da borda do elemento input, permitindo arredondar suas bordas. Nesse caso, os cantos da borda serão arredondados em 5 pixels.*/
+    width: 10%;
+    /*width: 50%;: Define a largura do elemento input em relação à largura do elemento pai. Nesse caso, o elemento input terá uma largura de 50% em relação à largura do elemento pai.*/
+    box-sizing: border-box;
+    /*box-sizing: border-box;: Define como o tamanho do elemento é calculado, levando em consideração o seu preenchimento e borda. Nesse caso, a largura definida pelo elemento input incluirá o preenchimento e a borda, sem afetar o layout da página.*/
+    margin-bottom: 20px;
+    /*margin-bottom: 20px;: Define a quantidade de espaço entre o elemento input e o elemento irmão abaixo dele. Nesse caso, um espaço de 20 pixels está sendo adicionado abaixo do elemento input.*/
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    /*box-shadow para dar um efeito de sombra ao redor de elementos do tipo input*/
+  }
+  
+  label {
+    /*Serve para tudo no botão ser clicavel como o nome no centro e não somente o botão em si */
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    height: 5%;
+  }
+
+  /*separação entre botões*/
+  button[type="submit"],
+  button[type="button"] {
+    background-color: #3286ca;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+  
+  button[type=button] {
+    /*Tipo de botão que realiza uma função na tela atual*/
+    display: flex;
+    background-color: #f44336;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    /*box-shadow para dar um efeito de sombra ao redor de elementos do tipo button[type="button"]*/
+  }
+  
+  button[type=submit] {
+    /*Tipo de botão que que confirma uma ação e leva para uma outra pagina previamente selecionada*/
+    display: flex;/*é uma propriedade CSS que permite criar layouts flexíveis, onde os elementos filhos (children) de um elemento pai (parent) são organizados em uma linha ou coluna,
+    de acordo com a direção definida pela propriedade "flex-direction". Essa propriedade também permite controlar a distribuição dos elementos dentro do container,
+    o espaçamento entre eles e o alinhamento vertical e horizontal.A flexbox é uma técnica de layout poderosa e bastante utilizada no desenvolvimento web atualmente.*/
+    background-color: #4aa4ee;/*background-color: #4aa4ee;: Define a cor de fundo do botão como um azul claro.*/  
+    color: #fff;/*color: #fff;: Define a cor do texto do botão como branco.*/
+    padding: 8px 12px;/*padding: 8px 12px;: Define o preenchimento interno do botão como 8 pixels no topo e na base, e 12 pixels nas laterais.*/
+    border: none;/*border: none;: Remove a borda do botão.*/
+    border-radius: 5px;/*border-radius: 5px;: Define o raio do canto do botão como 5 pixels, tornando-o ligeiramente arredondado.*/
+    cursor: pointer;/*Define o cursor do mouse como uma mão quando pairado sobre o botão, indicando que ele é clicável.*/
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    /*box-shadow para dar um efeito de sombra ao redor de elementos do tipo button[type="submit"]*/
+  }
+  
+  button[type=button]:hover {
+    /*Efeito de opacidade pra mudar a cor do botão tipo button[type="button"] quando interage com a seta do mouse */
+    background-color: #24434e;
+  }
+  
+  button[type=submit]:hover {
+    /*Efeito de opacidade pra mudar a cor do botão tipo button[type="submit"] quando interage com a seta do mouse */
+    background-color: #0062cc;
+  }

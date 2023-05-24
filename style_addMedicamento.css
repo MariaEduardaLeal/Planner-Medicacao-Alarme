@@ -1,0 +1,113 @@
+body {
+  /*configura tudo que fica no corpo da pagina que nesse caso usei para colocar uma imagem centralizada*/
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  background-image: url("img/injection-1974677_1920.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+* {
+  /* *ignora todas as formatações de css da pagina na web*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  /*Configura todas as caracteristicas de elementos do tipo link*/
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+  /*Com isso levará 0.3 degundos para ser aplicada a opacidade determinada em a:hover*/
+}
+
+a:hover {
+  /*Configura a opacidade de todos os elementos do tipo link*/
+  opacity: 0.7;
+}
+
+.logo {
+  /*O nome planner medicamentos nesse caso*/
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+
+}
+
+nav {
+  /*a faixa azul que fica no topó da tela*/
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #07a3ce;
+  height: 10vh;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.box-one {
+  background-color: #ffffffca;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.box-one label {
+  font-weight: bold;
+}
+
+.box-one select,
+.box-one input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.box-one button {
+  padding: 8px 16px;
+  margin-top: 10px;
+  background-color: #07a3ce;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.box-one button:hover {
+  background-color: #0062cc;
+}
+
+#horarios {
+  margin-top: 10px;
+}
+
+.horario-div {
+  display: flex;
+  align-items: center;
+}
+
+.remove-horario {
+  margin-left: 10px;
+  padding: 4px 8px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.remove-horario:hover {
+  background-color: #24434e;
+}
+
+

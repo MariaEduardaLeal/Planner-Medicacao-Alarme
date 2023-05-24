@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.logo {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #07a3ce;
+  height: 10vh;
+}
+
+main {
+  background: url("img/cold-1972619_1280.jpg") no-repeat center center;
+  background-size: cover;
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*.box está referenciando a box criada em style_alarme.php que possui todos os elementos abaixo de nav dentro dela que esta dentro de um container */
+.box{
+width: 100px;/*largura maxima da tela na parte onde esta os inputs e botões*/
+height: 100px;/*altura maxima da tela na parte onde esta os inputs e botões*/
+}
+
+.box-one{
+background-color: rgba(255, 255, 255, .5);/*rgba para controlar a cor e a opacidade ao mesmo tempo*/
+}
+
+#pesquisa-med {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 150%;
+}
+
+#pesquisa-med input{
+  /*Campo onde o usuario ira colocar informações pedidas e necessárias*/
+  padding: 10px;
+  /*padding: 10px;: Define a quantidade de espaço entre o conteúdo interno do elemento input e sua borda. Nesse caso, 10 pixels de espaço estão sendo adicionados ao redor do conteúdo interno do elemento input.*/
+  border: 1px solid #cccccc;
+  /*border: 1px solid #cccccc;: Define a aparência da borda do elemento input. Nesse caso, a borda terá 1 pixel de largura e será sólida, com uma cor de #cccccc (um tom de cinza claro).*/
+  border-radius: 5px;
+  /*border-radius: 5px;: Define o raio dos cantos da borda do elemento input, permitindo arredondar suas bordas. Nesse caso, os cantos da borda serão arredondados em 5 pixels.*/
+  width: 100%;
+  /*width: 50%;: Define a largura do elemento input em relação à largura do elemento pai. Nesse caso, o elemento input terá uma largura de 50% em relação à largura do elemento pai.*/
+  box-sizing: border-box;
+  /*box-sizing: border-box;: Define como o tamanho do elemento é calculado, levando em consideração o seu preenchimento e borda. Nesse caso, a largura definida pelo elemento input incluirá o preenchimento e a borda, sem afetar o layout da página.*/
+  margin-bottom: 20px;
+  /*margin-bottom: 20px;: Define a quantidade de espaço entre o elemento input e o elemento irmão abaixo dele. Nesse caso, um espaço de 20 pixels está sendo adicionado abaixo do elemento input.*/
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  /*box-shadow para dar um efeito de sombra ao redor de elementos do tipo input*/
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-list li {
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu div {
+  width: 32px;
+  height: 2px;
+  background: #fff;
+  margin: 8px;
+  transition: 0.3s;
+}
+
+button[type="submit"] {
+  background-color: #4aa4ee;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+button[type="submit"]:hover {
+  background-color: #0062cc;
+}
+
+@media (max-width: 999px) {
+  .nav-list {
+    width: 100%;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .nav-list {
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 50vw;
+    height: 92vh;
+    background: #2b2e23;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+  }
+  .nav-list li {
+    margin-left: 0;
+    opacity: 0;
+  }
+  .mobile-menu {
+    display: block;
+  }
+}
+.nav-list label {
+  color: white;
+}
+
+.nav-list.active {
+  transform: translateX(0);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-menu.active .line1 {
+  transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2 {
+  opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+  transform: rotate(45deg) translate(-5px, -7px);
+}
