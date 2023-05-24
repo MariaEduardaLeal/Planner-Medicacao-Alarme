@@ -19,14 +19,19 @@ if (mysqli_num_rows($resultado_medicamento) > 0) {
   // Converter a data de início para o formato adequado do MySQL
   $mysql_inicio = date('Y-m-d H:i:s', strtotime(str_replace('/', '-', $inicio)));
 
+  $intervalo_horas = 24 / $frequencia; // Intervalo em horas entre os alarmes
+
   for ($i = 0; $i < $duracao; $i++) {
     $data_alarme = date('Y-m-d', strtotime($mysql_inicio . ' + ' . $i . ' days'));
-    $hora_alarme = date('H:i:s', strtotime($mysql_inicio . ' + ' . ($i * 24 * $frequencia) . ' hours'));
 
-    // Inserir os dados no banco de dados
-    $incluir = "INSERT INTO me_horario (id_horario, id_medicamento, horario, login) 
-    VALUES (null, $id_medicamento, '$data_alarme $hora_alarme', '$opcao')";
-    mysqli_query($conexao, $incluir);
+    for ($j = 0; $j < $intervalo_horas; $j++) {
+      $hora_alarme = date('H:i:s', strtotime($mysql_inicio . ' + ' . ($i * 24 * $intervalo_horas + $j * (24 / $intervalo_horas)) . ' hours'));
+
+      // Inserir os dados no banco de dados
+      $incluir = "INSERT INTO me_horario (id_horario, id_medicamento, horario, login) 
+      VALUES (null, $id_medicamento, '$data_alarme $hora_alarme', '$opcao')";
+      mysqli_query($conexao, $incluir);
+    }
   }
 } else {
   echo 'Medicamento não encontrado.';
