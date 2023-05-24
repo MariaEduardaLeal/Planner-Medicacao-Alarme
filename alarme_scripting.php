@@ -30,7 +30,11 @@ if (mysqli_num_rows($resultado_medicamento) > 0) {
       // Inserir os dados no banco de dados
       $incluir = "INSERT INTO me_horario (id_horario, id_medicamento, horario, login) 
       VALUES (null, $id_medicamento, '$data_alarme $hora_alarme', '$opcao')";
-      mysqli_query($conexao, $incluir);
+      $query_incluir = mysqli_query($conexao, $incluir);
+
+      if ($query_incluir) {
+        header('location:principal2.php');
+      }
     }
   }
 } else {
