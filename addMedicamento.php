@@ -51,7 +51,6 @@ $resultado = mysqli_query($conexao, $consulta);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Medicamento</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="style_addMedicamento.css">
 </head>
 <body>
@@ -80,78 +79,24 @@ $resultado = mysqli_query($conexao, $consulta);
     <label for="fabricante">Fabricante: </label><br>
     <input type="text" name="fabricante" required><br>
 
-    <div id="horarios">
-        <label for="horarios">Horários:</label><br>
-        <div class="horario-div">
-            <input type="text" name="horarios[]" class="flatpickr" data-enable-time=true data-date-format="Y-m-d H:i" multiple>
-            <button type="button" class="remove-horario">Remover</button>
-        </div>
+    <label for="inicio">Horário de início:</label><br>
+    <input type="datetime-local" name="inicio" required><br>
 
-        <button type="button" onclick="addHorario()">Adicionar horário</button><br>
-        <button type="submit">Enviar</button>
+    <label for="duracao">Duração do tratamento (em dias):</label><br>
+    <input type="number" name="duracao" required><br>
+
+    <label for="frequencia">Frequência (em horas):</label><br>
+    <input type="number" name="frequencia" required><br>
+
+        
+        <button type="submit">Enviar</button><br>
+
+        
     </div>
 </form>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
-    function addHorario() {
-        var horariosDiv = document.getElementById("horarios");
-        var newHorarioDiv = document.createElement("div");
-        newHorarioDiv.setAttribute("class", "horario-div");
-        var newHorarioInput = document.createElement("input");
-        newHorarioInput.setAttribute("type", "text");
-        newHorarioInput.setAttribute("name", "horarios[]");
-        newHorarioInput.setAttribute("class", "flatpickr");
-        newHorarioInput.setAttribute("data-enable-time", "true");
-        newHorarioInput.setAttribute("data-date-format", "Y-m-d H:i");
-        var newHorarioRemoveButton = document.createElement("button");
-        newHorarioRemoveButton.setAttribute("type", "button");
-        newHorarioRemoveButton.setAttribute("class", "remove-horario");
-        newHorarioRemoveButton.innerText = "Remover";
-        newHorarioDiv.appendChild(newHorarioInput);
-        newHorarioDiv.appendChild(newHorarioRemoveButton);
-        horariosDiv.appendChild(newHorarioDiv);
-        flatpickr(".flatpickr", {
-            enableTime: true,
-            dateFormat: "Y-m-d H:i"
-        });
-        setupRemoveHorarioButtons();
-    }
-
-    function removeHorario(event) {
-        var horarioDiv = event.target.closest(".horario-div");
-        horarioDiv.remove();
-    }
-
-    function setupRemoveHorarioButtons() {
-        var removeHorarioButtons = document.querySelectorAll(".remove-horario");
-        removeHorarioButtons.forEach(function(button) {
-            button.removeEventListener("click", removeHorario);
-            button.addEventListener("click", removeHorario);
-        });
-    }
-
-    flatpickr(".flatpickr", {
-        enableTime: true,
-        dateFormat: "Y-m-d H:i"
-    });
-
-    setupRemoveHorarioButtons();
-
-    //Função para voltar para a página principal
-    function voltar() {
-        window.location.href = "principal2.php";
-    }
-
-    // Supondo que o login esteja armazenado em uma variável chamada "login"
-    const login = "<?php echo $_SESSION['login']; ?>";
-
-    setInterval(function() {
-        console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
-        tocarAlarmes(login);
-    }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
-</script>
-<form action="principal2.php">
-    <button type="button" onclick="voltar()">Voltar</button>
+    
+<form action="visualizar_alarme.php">
+    <button type="submit">Voltar</button>
 </form>
       </div>
     </div>    
