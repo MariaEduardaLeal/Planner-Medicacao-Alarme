@@ -35,7 +35,10 @@
 
         <!--Cadastrar senha-->
         <label for="senha">Digite sua senha :</label><br><!--<label></label> serve para que ao clicar no rótulo, o elemento de formulário associado a ele também recebe foco. Isso é útil para usuários que têm dificuldade em clicar em elementos pequenos, como caixas de seleção, ou que usam leitores de tela para acessar a página.-->
-        <input type="password" name="senha" required><br>
+        <input type="password" name="senha" id="senha" required>
+        
+        <input type="checkbox" onclick="mostrarOcultarSenha()">Mostar Senha
+        <script type="text/javascript" src="verificar_senha.js"></script>
 
         <label for="tipo_usuario">Tipo de usuário:</label><br>
         <select name="tipo_usuario" id="tipo_usuario">

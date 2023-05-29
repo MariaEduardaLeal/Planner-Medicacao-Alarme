@@ -26,12 +26,12 @@
                     </div>                         
                     <div class="input-box">
                         <span>Password</span>
-                        <input type="password" name="senha" required placeholder="Senha">
+                        <input type="password" name="senha" id="senha" required placeholder="Senha">
+
+                        <input type="checkbox" onclick="mostrarOcultarSenha()">Mostar Senha
+                        <script type="text/javascript" src="verificar_senha.js"></script>
                     </div>
                     <div class="remenber">
-                        <label>
-                            <input type="checkbox"> 
-                        </label>
                         <a href="confirmar_dados.php">Esqueceu a Senha?</a>
                     </div>
                     <br><div class="input-box">
