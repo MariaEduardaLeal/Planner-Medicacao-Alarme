@@ -42,10 +42,11 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
         <div class="box-one">  
             <?php
 
-                $select = "SELECT me_horario.*, me_medicamento.nome_medicamento
-                        FROM me_horario
-                        INNER JOIN me_medicamento ON me_horario.id_medicamento = me_medicamento.id_medicamento
-                        WHERE me_horario.login = '$login'";
+            $select = "SELECT me_horario.*, me_medicamento.nome_medicamento
+            FROM me_horario
+            INNER JOIN me_medicamento ON me_horario.id_medicamento = me_medicamento.id_medicamento
+            WHERE me_horario.login = '$login'";
+
                 $query_horario = mysqli_query($conexao, $select);
 
                 if(mysqli_num_rows($query_horario) > 0){
@@ -55,6 +56,8 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
                     echo "<th>Data e Hora</th>";
                     echo "<th>Login</th>";
                     echo "<th>Medicamento</th>";
+                    echo "<th>Dosagem</th>";
+                    echo "<th>Concentração</th>";
                     if ($id_tipo_usuario == 1) {
                         echo "<th>Exluir Alarmes</th>";
                         echo "<th>Atualizar Alarmes</th>";
@@ -68,6 +71,8 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
                         echo "<td>" . date('d/m/Y H:i:s', strtotime($dado_horario['horario'])) . "</td>";
                         echo "<td>" . $dado_horario['login'] . "</td>";
                         echo "<td>" . $dado_horario['nome_medicamento'] . "</td>";
+                        echo "<td>" . $dado_horario['dosagem'] . "</td>";
+                        echo "<td>" . $dado_horario['concentracao'] . "</td>";
                         //estou passando o dado de id_horario para poder excluir corretamente
                         if ($id_tipo_usuario == 1) {
                             echo "<td><a href='excluir_medicamento.php?id_horario={$dado_horario['id_horario']}'>Excluir Medicamento</a></td>";

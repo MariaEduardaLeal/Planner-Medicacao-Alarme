@@ -8,7 +8,9 @@ $inicio = $_POST['inicio'];
 $duracao = $_POST['duracao'];
 $frequencia = $_POST['frequencia'];
 $dosagem = $_POST['dosagem'];
+$num_dosagem = $_POST['num_dosagem'];
 $concentracao = $_POST['concentracao'];
+$num_concentracao = $_POST['num_concentracao'];
 
 
 // Obter o ID do medicamento com base no nome
@@ -33,7 +35,7 @@ if (mysqli_num_rows($resultado_medicamento) > 0) {
     
       // Inserir os dados no banco de dados
       $incluir = "INSERT INTO me_horario (id_horario, id_medicamento, horario, login, dosagem, concentracao) 
-      VALUES (null, $id_medicamento, '$data_alarme $hora_alarme', '$opcao', '$dosagem', '$concentracao')";
+      VALUES (null, $id_medicamento, '$data_alarme $hora_alarme', '$opcao', '$num_dosagem$dosagem', '$num_concentracao$concentracao')";
 
       $query_incluir = mysqli_query($conexao, $incluir);
 

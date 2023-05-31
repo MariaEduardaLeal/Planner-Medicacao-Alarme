@@ -74,6 +74,8 @@ $resultado = mysqli_query($conexao, $consulta);
         </select><br>   
 
         <label>Dosagem</label>
+        <input type="num" name="num_dosagem" required><br>
+        <label>Unidade de dosagem</label>
             <select name="dosagem" required>
                 <option>Selecione</option>
                 <option value="comprimido">comprimido</option>
@@ -83,6 +85,8 @@ $resultado = mysqli_query($conexao, $consulta);
                 <option value="unidade">unidade</option>
             </select>
 
+        <label>Concentração</label>
+        <input type="num" name="num_concentracao"><br>
         <label>Concentração</label>
             <select name="concentracao" required>
                 <option>Concentração</option>

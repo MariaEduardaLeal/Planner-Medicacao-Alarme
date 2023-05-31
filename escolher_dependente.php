@@ -75,9 +75,10 @@ if (mysqli_num_rows($query_alarmes) > 0) {
                 <button type="submit">Avançar</button>
               </form>
 
-              <form action="perfil.php">
-                <button type="submit">Voltar</button>
+              <form action="<?php echo $_SERVER['HTTP_REFERER']; ?>">
+                  <button type="submit">Voltar</button>
               </form>
+
 
             </main>
           </div>
