@@ -17,6 +17,13 @@ $query_email = mysqli_query($conexao, $select_email);
 $dado_email = mysqli_fetch_assoc($query_email);
 $email = $dado_email['email'];
 
+$select_senha = "SELECT senha FROM me_login
+WHERE id_usuario = (SELECT id_usuario FROM me_login WHERE login = '$login')";
+$query_senha = mysqli_query($conexao, $select_senha);
+$dado_senha = mysqli_fetch_assoc($query_senha);
+$senha = $dado_senha['senha'];
+
+
 // Obtém a data e hora atual no formato do banco de dados (ano-mês-dia hora:minuto:segundo)
 $agora = date('Y-m-d H:i:s');
 
@@ -57,6 +64,7 @@ if (mysqli_num_rows($query_alarmes) > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_mudar_dados.css">
     <title>Mudar Dados</title>
+    <script src="verificar_dados.js"></script>
 </head>
 
 <body>
@@ -70,19 +78,22 @@ if (mysqli_num_rows($query_alarmes) > 0) {
             <div class="box-one">
                 <form action="mudar_dados_scripting.php" method="post">
                     <label for="nome">Digite seu nome :</label><br>
-                    <input type="text" name="novo_nome" placeholder="<?php echo $nome ?>"><br>
+                    <input type="text" name="novo_nome" value="<?php echo $nome ?>" required><br>
 
                     <!--Cadastrar login-->
                     <label for="login">Digite seu login :</label><br>
-                    <input type="text" name="novo_login" placeholder="<?php echo $login ?>"><br>
+                    <input type="text" name="novo_login" value="<?php echo $login ?>" required><br>
 
                     <!--Cadastrar email-->
                     <label for="email">Email :</label><br>
-                    <input type="text" name="novo_email" placeholder="<?php echo $email ?>"><br>
+                    <input type="text" name="novo_email" value="<?php echo $email ?>" required><br>
 
                     <!--Cadastrar senha-->
                     <label for="senha">Digite sua senha :</label><br><!--<label></label> serve para que ao clicar no rótulo, o elemento de formulário associado a ele também recebe foco. Isso é útil para usuários que têm dificuldade em clicar em elementos pequenos, como caixas de seleção, ou que usam leitores de tela para acessar a página.-->
-                    <input type="password" name="nova_senha"><br>
+                    <input type="password" name="nova_senha" id="senha" value="<?php echo $senha ?>" required><br>
+
+                    <input type="checkbox" onclick="mostrarOcultarSenha()">Mostar Senha
+                    <script type="text/javascript" src="verificar_senha.js"></script>
 
                     <button type="submit" class="enviar">Enviar</button>
 
