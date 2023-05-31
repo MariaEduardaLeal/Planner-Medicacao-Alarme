@@ -49,7 +49,6 @@ if (mysqli_num_rows($query_alarmes) > 0) {
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>

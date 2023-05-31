@@ -9,6 +9,8 @@ $duracao = $_POST['duracao'];
 $frequencia = $_POST['frequencia'];
 $nome_medicamento = $_POST['nome_medicamento'];
 $fabricante = $_POST['fabricante'];
+$dosagem = $_POST['dosagem'];
+$concentracao = $_POST['concentracao'];
 
 $inserir = "INSERT INTO me_medicamento (nome_medicamento, fabricante, bula)
     VALUES ('$nome_medicamento', '$fabricante', 'C:/Users/User/Downloads/bula/')";
@@ -39,8 +41,8 @@ if (mysqli_num_rows($resultado_medicamento) > 0) {
       $hora_alarme = date('H:i:s', strtotime($mysql_inicio . ' + ' . ($i * 24 * $intervalo_horas + $j * (24 / $intervalo_horas)) . ' hours'));
 
       // Inserir os dados no banco de dados
-      $incluir = "INSERT INTO me_horario (id_horario, id_medicamento, horario, login) 
-      VALUES (null, $id_medicamento, '$data_alarme $hora_alarme', '$opcao')";
+      $incluir = "INSERT INTO me_horario (id_horario, id_medicamento, horario, login, dosagem, concentracao) 
+      VALUES (null, $id_medicamento, '$data_alarme $hora_alarme', '$opcao', '$dosagem', '$concentracao')";
       $query_incluir = mysqli_query($conexao, $incluir);
 
       if ($query_incluir) {

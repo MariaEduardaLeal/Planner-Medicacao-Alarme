@@ -1,0 +1,92 @@
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    background-image: url("img/injection-1974677_1920.jpg");
+    background-repeat: no-repeat;
+    background-size: flex;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #ffffff7d;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+.logo {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: #07a3ce;
+    height: 10vh;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+  /*.box está referenciando a box criada em style_alarme.php que possui todos os elementos abaixo de nav dentro dela que esta dentro de um container */
+.box {
+    width: 100px;
+    /*largura maxima da tela na parte onde esta os inputs e botões*/
+    height: 100px;
+    /*altura maxima da tela na parte onde esta os inputs e botões*/
+}
+
+.box-one {
+    background-color: rgba(255, 255, 255, .7);
+    /*rgba para controlar a cor e a opacidade ao mesmo tempo*/
+}
+  
+
+thead th {
+    background-color: #07a3ce;
+    border: 1px solid #000000;
+    color: #fff;
+    text-align: left;
+    padding: 8px;
+}
+
+tbody td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+button[type=submit] {
+    background-color: #f44336;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #24434e;
+}

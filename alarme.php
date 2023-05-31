@@ -46,7 +46,27 @@ $resultado = mysqli_query($conexao, $consulta);
         <option value="<?php echo $row['nome_dependente']; ?>"><?php echo $row['nome_dependente']; ?></option>
         <?php } ?>
         <option value="<?php echo $login ?>"><?php echo $login ?></option>
-        </select>
+        </select><br>
+
+        <label>Dosagem</label>
+            <select name="dosagem" required>
+                <option>Selecione</option>
+                <option value="comprimido">comprimido</option>
+                <option value="capsula">cápsula</option>
+                <option value="gota">gota</option>
+                <option value="colher">colher</option>
+                <option value="unidade">unidade</option>
+            </select>
+
+        <label>Concentração</label>
+            <select name="concentracao" required>
+                <option>Concentração</option>
+                <option value="mcg">mcg</option>
+                <option value="mg">mg</option>
+                <option value="g">g</option>
+                <option value="mL">mL</option>
+                <option value="L">L</option>
+            </select>
 
         <label for="inicio">Horário de início:</label>
         <input type="datetime-local" name="inicio" required>

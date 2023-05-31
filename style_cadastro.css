@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #f0f0f0;
   font-family: Arial, sans-serif;
@@ -6,27 +12,120 @@ body {
   background-size: cover;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
-  transition: 0.3s;
 }
 
-a:hover {
-  opacity: 0.7;
+.container {
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  background-color: #4aa4ee;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+}
+
+button[type="submit"],
+form:last-of-type button[type="submit"] {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+form:last-of-type button[type="submit"] {
+  background-color: #f44336;
+}
+
+form:last-of-type button[type="submit"]:hover {
+  background-color: #24434e;
+}
+
+.form-control.success input {
+  border: 3px solid #4ECA64;
+}
+
+.form-control.error input {
+  border: 3px solid #DB5A5A;
+}
+
+.form-control.error i.img-error {
+  visibility: visible;
+}
+
+.form-control.success i.img-success {
+  visibility: visible;
+}
+
+.form-control.error small{
+  color: #DB5A5A;
+  visibility: visible;
+}
+
+.form-control i {
+  position: absolute;
+  top: 45px;
+  right: 10px;
+  visibility: hidden;
+}
+
+.form-control small {
+  visibility: hidden;
+  position: absolute;
+  margin-top: 5px;
+  font-size: 14px;
+
 }
 
 .logo {
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 0px;
-
 }
 
 nav {
@@ -38,81 +137,43 @@ nav {
   height: 10vh;
 }
 
-/*.box está referenciando a box criada em style_alarme.php que possui todos os elementos abaixo de nav dentro dela que esta dentro de um container */
 .box {
   width: 100px;
-  /*largura maxima da tela na parte onde esta os inputs e botões*/
   height: 100px;
-  /*altura maxima da tela na parte onde esta os inputs e botões*/
+  
 }
 
-.box-one {
-  background-color: rgba(255, 255, 255, .7);
-  /*rgba para controlar a cor e a opacidade ao mesmo tempo*/
+@media only screen and (max-width: 600px) {
+  .container {
+      max-width: 100%;
+      margin: 10px;
+  }
+
+  input,
+  select {
+      width: 100%;
+  }
 }
 
-h1 {
-  text-align: center;
-  margin-top: 20px;
-  font-family: 'Times New Roman', Times, serif;
+@media only screen and (max-width: 400px) {
+  h1 {
+      font-size: 18px;
+  }
 
-}
+  label {
+      font-size: 14px;
+  }
 
-label {
-  display: block;
-  margin-top: 20px;
-  font-weight: bold;
+  input,
+  select {
+      font-size: 14px;
+  }
 
-}
+  button[type="submit"] {
+      font-size: 14px;
+  }
 
-input {
-  padding: 10px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  width: 50%;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-}
-
-select {
-  padding: 10px;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  width: 50%;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-
-}
-
-button[type="submit"] {
-  background-color: #4aa4ee;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 20px;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-
-}
-
-button[type="submit"]:hover {
-  background-color: #0062cc;
-}
-
-/* Define um estilo para o botão Voltar */
-form:last-of-type button[type="submit"] {
-  background-color: #f44336;
-}
-
-form:last-of-type button[type="submit"]:hover {
-  background-color: #24434e;
-}
-
-/* Define um estilo para os botões */
-button {
-  display: inline-block;
-  margin-right: 10px;
-  margin-bottom: 20px;
+  .logo {
+      font-size: 16px;
+  }
 }
