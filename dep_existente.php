@@ -63,7 +63,14 @@ if (mysqli_num_rows($query_alarmes) > 0) {
           <label for="emailDependente">Confirme o email do dependente:</label><br>
           <input type="email" name="emailDependente" required><br>
 
-          <button type="submit" name="adicionarDependente">Adicionar</button>
+          <label for="confSenha">Confirme a senha do perfil do seu dependente</label><br>
+          <input type="password" name="confSenha" required><br>
+
+          <br><button type="submit" name="adicionarDependente">Adicionar</button>
+        </form>
+
+        <form action="addDependente.php">
+          <button type="submit">Voltar</button>
         </form>
       </main>
     </div>

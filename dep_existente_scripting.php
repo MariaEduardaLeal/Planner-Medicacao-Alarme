@@ -7,12 +7,13 @@ $login = $_SESSION['login'];
 $nomeDependente = $_POST['nomeDependente'];
 $login_dep = $_POST['loginDependente'];
 $email = $_POST['emailDependente'];
+$senha_dep = $_POST['confSenha'];
 
 $verificar_user = "SELECT nome_usuario, email FROM me_usuario 
 WHERE nome_usuario = '$nomeDependente' AND email = '$email'";
 
-$verificar_login = "SELECT id_usuario, login FROM me_login 
-WHERE login = '$login_dep' AND id_usuario = (SELECT id_usuario FROM me_login WHERE login = '$login_dep')";
+$verificar_login = "SELECT id_usuario, login, senha FROM me_login 
+WHERE login = '$login_dep' AND id_usuario = (SELECT id_usuario FROM me_login WHERE login = '$login_dep' AND senha = '$senha_dep')";
 
 $query_verificar =  mysqli_query($conexao, $verificar_user) && mysqli_query($conexao, $verificar_login);
 

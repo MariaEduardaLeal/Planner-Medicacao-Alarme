@@ -10,7 +10,7 @@ $query_delete = mysqli_query($conexao, $delete);
 
 if($query_delete) {
     echo "<script>alert('Dado excluido com sucesso')</script>";
-    echo "<script>window.location.href='visualizar_alarme.php'</script>";
+    echo "<script>window.location.href='perfil.php'</script>";
 } else {
     echo "Erro ao excluir registro.";
 }
