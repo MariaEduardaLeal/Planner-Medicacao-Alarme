@@ -75,6 +75,7 @@ if (mysqli_num_rows($query_alarmes) > 0) {
               echo '<li><a href="addDependente.php">Dependente</a></li>';
           }
           ?>
+          <li><a href="principal.php">Voltar</a></li>
           <li><a href="login.php">Sair</a></li>
           <li><a href="sobre.php">Sobre</a></li>          
           <li><a href="#">Contato</a></li>

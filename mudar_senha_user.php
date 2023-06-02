@@ -10,6 +10,12 @@ $query_email = mysqli_query($conexao, $select_email);
 $dado_email = mysqli_fetch_assoc($query_email);
 $email = $dado_email['email'];
 
+$select_senha = "SELECT senha FROM me_login
+WHERE id_usuario = (SELECT id_usuario FROM me_login WHERE login = '$login')";
+$query_senha = mysqli_query($conexao, $select_senha);
+$dado_senha = mysqli_fetch_assoc($query_senha);
+$senha = $dado_senha['senha'];
+
 
 // Obtém a data e hora atual no formato do banco de dados (ano-mês-dia hora:minuto:segundo)
 $agora = date('Y-m-d H:i:s');
@@ -35,6 +41,7 @@ if (mysqli_num_rows($query_alarmes) > 0) {
     while ($dado_alarme = mysqli_fetch_assoc($query_alarmes)) {
         $nomeMedicamento = $dado_alarme['nome_medicamento'];
         echo "<script>alert('Hora de tomar o remédio: $nomeMedicamento');</script>";
+        echo "<audio autoplay><source src='audio/alarme_clock_audio_ringtone.mp3' type='audio/mpeg'></audio>";
     }
 } else {
     // Se não houver alarmes no horário atual, agendamos a próxima verificação em 1 minuto
@@ -65,8 +72,10 @@ if (mysqli_num_rows($query_alarmes) > 0) {
             <form action="mudar_senha_scripting.php" id="form_confirma_dados" method="post">
                 <label for="email">Confirme seu email</label>
                 <input type="email" name="email" placeholder="<?php echo $email ?>">
+
                 <label for="login">Confirme Seu login</label>
                 <input type="text" name="login" placeholder="<?php echo $login ?>">
+
                 <label for="senha">Informe sua nova senha</label>
                 <input type="text" name="senha">
                 <button type="submit" class="enviar">Enviar</button>

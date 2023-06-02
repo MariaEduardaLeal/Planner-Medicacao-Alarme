@@ -18,7 +18,7 @@ if ($login == '' && $senha == '') {
     if($login == isset($dado[0]) && $senha == isset($dado[1])){ //O isset está verificando se a variável dado[1] e dado[2] é nula, pois se colocamos um usuário que não existe o valor dentro da variável será nula e retornará um aviso do php
         session_start(); // inicia a sessão
         $_SESSION['login'] = $dado[0];
-        header("location: principal2.php");
+        header("location: principal.php");
         
     }else{
     header("location: login.php");
