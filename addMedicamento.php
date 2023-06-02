@@ -27,6 +27,7 @@ if (mysqli_num_rows($query_alarmes) > 0) {
     while ($dado_alarme = mysqli_fetch_assoc($query_alarmes)) {
         $nomeMedicamento = $dado_alarme['nome_medicamento'];
         echo "<script>alert('Hora de tomar o remédio: $nomeMedicamento');</script>";
+        echo "<audio autoplay><source src='audio/alarme_clock_audio_ringtone.mp3' type='audio/mpeg'></audio>";
     }
 } else {
     // Se não houver alarmes no horário atual, agendamos a próxima verificação em 1 minuto

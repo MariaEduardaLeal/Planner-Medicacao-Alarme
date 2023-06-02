@@ -160,7 +160,14 @@ $query_horario = mysqli_query($conexao, $select);
           menuDropdown.style.display = 'block'; // Exibe o menu-dropdown
         }
       });
-    </script>
+      // Supondo que o login esteja armazenado em uma variável chamada "login"
+      const login = "<?php echo $_SESSION['login']; ?>";
+
+      setInterval(function() {
+        console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
+        tocarAlarmes(login);
+      }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
+    </script>   
     <script src="script_principal.js"></script>
 </body>
 
