@@ -30,7 +30,7 @@ if (mysqli_num_rows($query_alarmes) > 0) {
     $nomeMedicamento = $dado_alarme['nome_medicamento'];
     echo "<script>alert('Hora de tomar o remédio: $nomeMedicamento');</script>";
     echo "<audio autoplay><source src='audio/alarme_clock_audio_ringtone.mp3' type='audio/mpeg'></audio>";
-    }
+  }
 } else {
   // Se não houver alarmes no horário atual, agendamos a próxima verificação em 1 minuto
   echo "<script>setTimeout(function() { location.reload(); }, 60000);</script>";
@@ -70,6 +70,7 @@ $query_horario = mysqli_query($conexao, $select);
           <img src="img/logo_plannermed.png">
         </a>
       </div>
+
       <div id="menu">
         <ul>
           <li><a href="#Diário" class="active">Diário</a></li>
@@ -80,9 +81,9 @@ $query_horario = mysqli_query($conexao, $select);
       </div>
       <div id="perfil">
         <img src="img/tentativa.png"><br><br>
-        <label id="nome_perfil">Fulana De Tal</label><br>
+        <label id="nome_perfil"><?php echo $login ?></label>
         <div class="seta">
-          <img id="seta-img" src="img/keyboard_arrow_down_FILL0_wght500_GRAD0_opsz24.svg" alt="Seta para baixo">
+          <img id="seta-img" src="img/seta-perfil.svg" alt="Seta para baixo">
         </div>
 
         <div id="menu-dropdown" style="display: none;">
@@ -94,51 +95,48 @@ $query_horario = mysqli_query($conexao, $select);
       </div>
     </div>
     <div id="main">
-    <button class="meu-botao" onclick="window.location.href ='principal2.php'"> 
+      <button class="meu-botao" onclick="window.location.href ='principal2.php'">
         <div class="conteudo-botao">
           <img src="img/alarm_add_black_24dp.svg">
           <span>Adicionar Medicação</span>
         </div>
       </button>
-    <?php
-    while ($dado_horario = mysqli_fetch_assoc($query_horario)) {
-      $idHorario = $dado_horario['id_horario'];
-      $horario = date('H:i', strtotime($dado_horario['horario']));
-      $nomeMedicamento = $dado_horario['nome_medicamento'];
-      $dosagem = $dado_horario['dosagem'];
-      $concentracao = $dado_horario['concentracao'];
-    ?>
-    <div class="retangulo">
-        <div class="conteudo-retangulo">
-        <img id="relogio" src="img/icon-box-horario.svg">
-    
-      <label id="label"><?php echo $horario; ?></label>
-      <label class="nome_medicamento"><?php echo $nomeMedicamento; ?></label>
-      <img id="cubo" src="img/icon-box-medicacao.svg">
-      <label class="dosagem"><?php echo $dosagem; ?></label>
-      <img id="bucket" src="img/icon-concentracao.svg">
-      <label id="concentracao"><?php echo $concentracao; ?></label>
-      <ul id="lista" style="list-style-type: none;">
-        <li style="margin-bottom: 0.4cm; text-align: right;"><a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a></li>
-        <li style="margin-bottom: 0.4cm; text-align: right;"><a href="update_medicamento.php?id_horario=<?php echo $dado_horario['id_horario'] ?>&nome_medicamento=<?php echo $dado_horario['nome_medicamento'] ?>">editar medicação</a></li>
-        <li style="margin-bottom: 0.4cm; text-align: right;"> <a href="excluir_medicamento.php?id_horario=<?php echo $dado_horario['id_horario'] ?>">excluir medicação</a></li>
-      </ul>
-      
-  </div>
-</div>
-<?php } ?>
+      <?php
+      while ($dado_horario = mysqli_fetch_assoc($query_horario)) {
+        $idHorario = $dado_horario['id_horario'];
+        $horario = date('H:i', strtotime($dado_horario['horario']));
+        $nomeMedicamento = $dado_horario['nome_medicamento'];
+        $dosagem = $dado_horario['dosagem'];
+        $concentracao = $dado_horario['concentracao'];
+      ?>
+        <div class="retangulo">
+          <div class="conteudo-retangulo">
+            <img id="relogio" src="img/icon-box-horario.svg">
 
+            <label id="label"><?php echo $horario; ?></label>
+            <label class="nome_medicamento"><?php echo $nomeMedicamento; ?></label>
+            <img id="cubo" src="img/icon-dosagem.svg">
+            <label class="dosagem"><?php echo $dosagem; ?></label>
+            <img id="bucket" src="img/icon-concentracao.svg">
+            <label id="concentracao"><?php echo $concentracao; ?></label>
+            <ul id="lista" style="list-style-type: none;">
+              <li style="margin-bottom: 0.4cm; text-align: right;"><a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a></li>
+              <li style="margin-bottom: 0.4cm; text-align: right;"><a href="update_medicamento.php?id_horario=<?php echo $dado_horario['id_horario'] ?>&nome_medicamento=<?php echo $dado_horario['nome_medicamento'] ?>">editar medicação</a></li>
+              <li style="margin-bottom: 0.4cm; text-align: right;"> <a href="excluir_medicamento.php?id_horario=<?php echo $dado_horario['id_horario'] ?>">excluir medicação</a></li>
+            </ul>
 
-
+          </div>
+        </div>
+      <?php } ?>
     </div>
     <div id="footer">
       <div id="main2">
-      <button class="meu-botao" onclick="window.location.href ='principal2.php'"> 
-        <div class="conteudo-botao">
-          <img src="img/alarm_add_black_24dp.svg">
-          <span>Adicionar Medicação</span>
-        </div>
-      </button>
+        <button class="meu-botao" onclick="window.location.href ='principal2.php'">
+          <div class="conteudo-botao">
+            <img src="img/alarm_add_black_24dp.svg">
+            <span>Adicionar Medicação</span>
+          </div>
+        </button>
       </div>
     </div>
     <script>
@@ -167,7 +165,7 @@ $query_horario = mysqli_query($conexao, $select);
         console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
         tocarAlarmes(login);
       }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
-    </script>   
+    </script>
     <script src="script_principal.js"></script>
 </body>
 

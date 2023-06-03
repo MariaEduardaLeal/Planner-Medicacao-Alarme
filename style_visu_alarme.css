@@ -1,73 +1,36 @@
 
-/* Estilos gerais */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  /* Estilos para a tabela */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f2f2f2;
-}
+  th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
 
-h1 {
-  text-align: center;
-}
+  /* Estilos para o cabeçalho da tabela */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
+  /* Estilos para os links de ação */
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
 
-th, td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
+  /* Estilos para os links de ação quando passar o mouse */
+  a:hover {
+    text-decoration: underline;
+  }
 
-/* Estilos específicos para a tabela */
-thead {
-  background-color: #f9f9f9;
-}
-
-th {
-  font-weight: bold;
-}
-
-tbody tr:hover {
-  background-color: #f5f5f5;
-}
-
-a {
-  text-decoration: none;
-  color: #337ab7;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Estilos adicionais */
-
-/*.box está referenciando a box criada em style_alarme.php que possui todos os elementos abaixo de nav dentro dela que esta dentro de um container */
-.box {
-  width: 100px;
-  /*largura maxima da tela na parte onde esta os inputs e botões*/
-  height: 100px;
-  /*altura maxima da tela na parte onde esta os inputs e botões*/
-}
-
-.box-one {
-  background-color: rgba(255, 255, 255, .7);
-  /*rgba para controlar a cor e a opacidade ao mesmo tempo*/
-}

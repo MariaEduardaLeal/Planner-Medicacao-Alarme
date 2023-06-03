@@ -8,10 +8,9 @@
     display: grid;
     height: 100vh;
     grid-template-columns: 0.7fr 1.1fr 1.1fr;
-    grid-template-rows: 0.4fr 2.2fr 0.3fr;
+    grid-template-rows: 0.4fr 2.5fr;
     grid-template-areas: "nav nav nav"
-      "main main main"
-      "footer footer footer";
+      "main main main";
   }
   
   #nav {
@@ -110,7 +109,7 @@
     position: absolute;
   }
   
-  #nome_perfil {
+  #Fulana {
     font-family: arial;
     position: absolute;
     top: 11%;
@@ -121,7 +120,7 @@
   .seta {
     position: absolute;
     right: 10%;
-    top: 15%;
+    top: 11%;
     cursor: pointer;
   }
   
@@ -142,12 +141,13 @@
     background-color: #255885;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 10px 10px;
+    
     border-radius: 5px;
     margin-top: 1%;
     margin-left: 2%;
     cursor: pointer;
+        
   }
   
   .conteudo-botao {
@@ -157,19 +157,20 @@
   }
   
   .conteudo-botao img {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 33px;
     margin-right: 10px;
   }
   
   .conteudo-botao span {
     font-weight: bold;
     font-size: small;
-  }
+    font-size: 20px;    
+  }  
   
   .retangulo {
-    width: 1200px;
-    height: 100px;
+    width: 1324px;
+    height: 152px;
     background-color: #DEE3E7;
     margin-left: 2%;
     margin-top: 1%;
@@ -183,67 +184,117 @@
   }
   
   .conteudo-retangulo img {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 61px;
     margin-right: 10px;
     margin-left: 2%;
     margin-top: 0%;
   }
   
-  #label {
+  #nome_remedio {
     margin-top: 0%;
-    font-size: x-large;
+    font-size: 24px;
     font-family: arial;
-    color: #03738C;
+    color: #255885;
+    font-weight: bold;
   }
-  
-  .nome_medicamento {
-    margin-left: 10%;
-    margin-top: -3%;
-    font-size: medium;
-    font-family: arial;
-  }
-  
-  #cubo {
-    width: 20px;
-    height: 30px;
-    margin-right: 11px;
-    margin-left: -16%;
-    margin-top: 2%;
-  }
-  
-  .concentracao {
-    margin-right: 10px;
-    margin-left: -1%;
-    margin-top: 2%;
-    font-family: arial;
-  }
-  
-  #bucket {
-    width: 25px;
-    height: 30px;
-    margin-right: 10px;
-    margin-left: 2%;
-    margin-top: 2%;
+
+  #cubo_duplo {
+    width: 29.99px;
+    height: 26.46px;
+    position: absolute;
+    left: 25%;
+    top: 20%;
   }
   
   #dosagem {
-    margin-right: 10px;
-    margin-left: -1%;
-    margin-top: 2%;
+    top: 21%;
+    left: 29%;   
     font-family: arial;
+    position: absolute;
+  }
+  
+  #bucket {
+    width: 22.5px;
+    height: 24.35px;    
+    margin-left: 6.5%;
+    margin-top: 4.9%;
+  }
+  
+  #concentracao {
+    left: 29%;
+    top:24.5%;
+    position: absolute;
+    font-family: arial;
+  }
+
+  #ampulheta{
+    position: absolute;
+    width: 22.5px;
+    height: 24.35px;    
+    left: 25%;
+    top: 28%;
+  }
+
+  #periodo_medicamento{
+    position: absolute;
+    left: 29%;
+    top: 28.3%;
+  }
+
+  #bandeira{
+    position: absolute;
+    left: 35%;
+    top: 20.1%;
+    width: 25px;
+    height: 25px;
+  }
+
+  #inicio_medicacao{
+    position: absolute;
+    left: 39%;
+    top: 21%;
+  }
+
+  #quadriculada{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 35%;
+    top: 23.5%;
+  }
+
+  #final_medicacao{
+    position: absolute;
+    left: 38.9%;
+    top: 24.5%;
+  }
+
+  #sino{
+    position: absolute;
+    left: 45%;
+    top: 20%;
+    width: 30px;
+    height: 30px;
+  }
+
+  #horarios_remedio {
+    position: absolute;    
+    left: 49.2%;
+    top: 20%;
+    list-style: none;
   }
   
   #lista {
     text-decoration: none;
-    margin-right: 10px;
-    margin-left: 49%;
-    margin-top: 1%;
+    top: 21%;
+    left: 64%;
     font-family: arial;
     font-size: smaller;
     cursor: pointer;
+    position: absolute;
   }
-    
+
   .meu-botao2 {
     display: flex;
     align-items: center;
@@ -251,12 +302,12 @@
     background-color: #255885;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 10px 10px;    
     border-radius: 5px;
-    margin-bottom: 1%;
-    margin-left: 82%;
+    margin-top: 27%;
+    margin-left: 78%;
     cursor: pointer;
+        
   }
   
   .conteudo-botao2 {
@@ -266,19 +317,15 @@
   }
   
   .conteudo-botao2 img {
-    width: 40px;
-    height: 30px;
+    width: 35px;
+    height: 33px;
     margin-right: 10px;
-    margin-top: 4px;
   }
   
   .conteudo-botao2 span {
     font-weight: bold;
-    font-size: small;  
+    font-size: small;
+    font-size: 20px;    
   }
   
-  #footer {
-    background-color: #F2F2F2;
-    grid-area: footer;
   
-  }
