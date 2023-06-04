@@ -17,6 +17,7 @@ if (isset($_POST['cadastrarPerfil'])) {
   header('Location: cad_dependente.php');
   exit();
 }
+
 // Obtém a data e hora atual no formato do banco de dados (ano-mês-dia hora:minuto:segundo)
 $agora = date('Y-m-d H:i:s');
 
@@ -42,11 +43,19 @@ if (mysqli_num_rows($query_alarmes) > 0) {
     $nomeMedicamento = $dado_alarme['nome_medicamento'];
     echo "<script>alert('Hora de tomar o remédio: $nomeMedicamento');</script>";
     echo "<audio autoplay><source src='audio/alarme_clock_audio_ringtone.mp3' type='audio/mpeg'></audio>";
-}
+  }
 } else {
   // Se não houver alarmes no horário atual, agendamos a próxima verificação em 1 minuto
   echo "<script>setTimeout(function() { location.reload(); }, 60000);</script>";
 }
+
+// Consulta SQL para obter os dependentes associados ao login
+$consulta = "SELECT d.nome_dependente, d.id_dependente 
+FROM me_dependente d
+INNER JOIN me_login l ON l.id_usuario = d.id_usuario
+WHERE l.login = '$login'";
+$resultado = mysqli_query($conexao, $consulta);
+$dependentes = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -58,33 +67,37 @@ if (mysqli_num_rows($query_alarmes) > 0) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adicionar Dependente</title>
   <link rel="stylesheet" href="style_addDependente.css">
+ 
 </head>
 
 <body>
   <center>
-    <nav>
-      <a class="logo" href="login.php">Planner Medicamentos</a>
-    </nav>
+ 
     <div class="container">
       <div class="box-one">
-
-
         <main>
 
-          <h1>Escolha uma opção:</h1>
+        <h2>Dependentes Cadastrados:</h2>
+    <?php foreach ($dependentes as $dependente) : ?>
+      <div class="dependente">
+        <img src="img/tentativa.png" alt="Foto do dependente">
+        <div>
+          <span><?php echo $dependente['nome_dependente']; ?></span>
+          <a class="editar_dep" href="informacao_dependente.php?id_dependente=<?php echo $dependente['id_dependente']; ?>
+          &nome_dependente=<?php echo $dependente['nome_dependente']; ?>">Acessar Dependente</a>
+        </div>
+      </div>
+          <?php endforeach; ?>
 
-          <form action="" method="POST">
-            <button type="submit" name="addPerfil">Adicionar Perfil de Dependente Ativo</button>
-          </form>
+          <div class="actions">
+      <form action="" method="POST">
+        <button type="submit" name="addPerfil">Adicionar Perfil de Dependente Ativo</button>
+      </form>
 
-          <form action="" method="POST">
-            <button type="submit" name="cadastrarPerfil">Cadastrar Novo Perfil de Dependente</button>
-          </form>
-
-          <form action="escolher_dependente.php">
-            <button type="submit">Visualizar Dependentes</button>
-          </form>
-
+      <form action="" method="POST">
+        <button type="submit" name="cadastrarPerfil">Cadastrar Novo Perfil de Dependente</button>
+      </form>
+    </div>
           <form action="principal2.php">
             <button type="submit">Voltar</button>
           </form>

@@ -12,7 +12,7 @@ $query_deletar_dep = mysqli_query($conexao, $deletar_dep);
 
 if ($query_deletar_dep) {
     echo "<script>alert('Dependente excluído com sucesso.')</script>";
-    echo "<script>window.location.href='login.php'</script>";
+    echo "<script>window.location.href='addDependente.php'</script>";
 } else {
     echo "Erro ao excluir o dependente.";
 }

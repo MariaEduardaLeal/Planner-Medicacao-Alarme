@@ -54,6 +54,7 @@ $query_horario = mysqli_query($conexao, $select);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style_principal.css">
+
 </head>
 
 <body>
@@ -68,7 +69,7 @@ $query_horario = mysqli_query($conexao, $select);
         <ul>
           <li><a href="principal.php">Diário</a></li>
           <li><a href="#Remédios" class="active">Remédios</a></li>
-          <li><a href="dependentes.php">Depedentes</a></li>
+          <li><a href="addDependente.php">Depedentes</a></li>
           <li><a href="Sobre_nos.php">Sobre nós</a></li>
         </ul>
       </div>
@@ -82,7 +83,7 @@ $query_horario = mysqli_query($conexao, $select);
           <!-- Conteúdo do menu dropdown -->
           <a href="perfil.php">Dados do perfil</a>
           <a href="#">Histórico</a>
-          <a href="#">Sair</a>
+          <a href="login.php">Sair</a>
         </div>
       </div>
     </div>
@@ -99,7 +100,7 @@ $query_horario = mysqli_query($conexao, $select);
 
       while ($dado_horario = mysqli_fetch_assoc($query_horario)) {
         $nomeMedicamento = $dado_horario['nome_medicamento'];
-      
+
         // Verifica se o medicamento já existe no array de medicamentos
         if (isset($medicamentos[$nomeMedicamento])) {
           // Atualiza a última data encontrada
@@ -113,35 +114,35 @@ $query_horario = mysqli_query($conexao, $select);
             'horarios' => array() // Adiciona um subarray para armazenar os horários dos alarmes
           );
         }
-      
+
         // Atualiza a última data para o medicamento atual
         $medicamentos[$nomeMedicamento]['ultima_data'] = $dado_horario['horario'];
-      
+
         // Adiciona o horário dos alarmes ao subarray de horários do medicamento
         $horario = date('H:i', strtotime($dado_horario['horario']));
         $medicamentos[$nomeMedicamento]['horarios'][] = $horario;
       }
-      
+
       // Exibe apenas o último retângulo para cada nome de medicamento
       foreach ($medicamentos as $nomeMedicamento => $medicamento) {
         // Extrai as informações do medicamento
         $primeira_data = $medicamento['primeira_data'];
         $ultima_data = $medicamento['ultima_data'];
         $dados_medicamento = $medicamento['dados'];
-      
+
         // Extrai as informações do medicamento
         $idHorario = $dados_medicamento['id_horario'];
         $horario = date('H:i', strtotime($dados_medicamento['horario']));
         $dosagem = $dados_medicamento['dosagem'];
         $concentracao = $dados_medicamento['concentracao'];
-      
+
         // Cálculo da duração em dias
         $data_inicio = new DateTime($primeira_data);
         $data_fim = new DateTime($ultima_data);
         $intervalo = $data_inicio->diff($data_fim);
         $duracao_em_dias = $intervalo->days + 1; // +1 para incluir o último dia
-        ?>
-        
+      ?>
+
         <div class="retangulo">
           <div class="conteudo-retangulo">
             <img id="box_azul" src="img/icon-box-medicacao.svg">
@@ -156,12 +157,15 @@ $query_horario = mysqli_query($conexao, $select);
             <label id="final_medicacao"><?php echo date('d/m/Y', strtotime($ultima_data)); ?></label>
             <img id="ampulheta" src="img/icon-duracao.svg">
             <label id="periodo_medicamento"><?php echo "Duração: $duracao_em_dias dias"; ?></label>
-            <img id="sino" src="img/bell-ring-outline.svg">
-            <a href="visualizar_alarme.php?nome_med=<?php echo $nomeMedicamento ?>">Visualizar alarmes</a>
-            <ul id="lista" style="list-style-type: none;">
-              <li style="margin-bottom: 0.4cm; text-align: right;"><a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a></li>
-              <li style="margin-bottom: 0.4cm; text-align: right;"><a href="editar_medicamento.php?id_horario=<?php echo $dado_horario['id_horario'] ?>&nome_medicamento=<?php echo $dado_horario['nome_medicamento'] ?>">editar medicação</a></li>              
-            </ul>
+
+            <ul class="links-direita">
+  <li><a href="visualizar_alarme.php?nome_med=<?php echo $nomeMedicamento ?>">Visualizar alarmes</a></li>
+  <li><a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a></li>
+  <li><a href="editar_medicamento.php?id_horario=<?php echo $dado_horario['id_horario'] ?>&nome_medicamento=<?php echo $dado_horario['nome_medicamento'] ?>">editar medicação</a></li>
+</ul>
+
+
+
             <div class="linha">
 
               <div class="divisória"></div>
@@ -175,7 +179,7 @@ $query_horario = mysqli_query($conexao, $select);
 
       <div id="main2">
         <button class="meu-botao2" onclick="window.location.href = 'principal2.php'">
-          <div class="conteudo-botao2" >
+          <div class="conteudo-botao2">
             <img src="img/icon-button-adicionar-alarme.svg">
             <span>Adicionar medicação</span>
           </div>
@@ -201,13 +205,13 @@ $query_horario = mysqli_query($conexao, $select);
           menuDropdown.style.display = 'block'; // Exibe o menu-dropdown
         }
       });
-       // Supondo que o login esteja armazenado em uma variável chamada "login"
-       const login = "<?php echo $_SESSION['login']; ?>";
+      // Supondo que o login esteja armazenado em uma variável chamada "login"
+      const login = "<?php echo $_SESSION['login']; ?>";
 
-        setInterval(function() {
-          console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
-          tocarAlarmes(login);
-        }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
+      setInterval(function() {
+        console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
+        tocarAlarmes(login);
+      }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
     </script>
     <script src="script_principal2.js"></script>
 </body>

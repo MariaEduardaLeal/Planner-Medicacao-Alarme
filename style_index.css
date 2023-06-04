@@ -1,185 +1,69 @@
-/*os asterisco e para tirar o css padrão dos navegadores pra não dar comflito com o do codigo*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    
-    
-}
-/*Esse trecho de código cria um container de login que ocupa toda a altura da tela do usuário e permite que os elementos dentro dele sejam facilmente alinhados e dimensionados.*/
-.container-login {
-    position: relative;
-    width: 100%;
+body {
+    background-color: #005687;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    display: flex; 
-     
-}
-/*Esse trecho de código cria um elemento que exibe uma imagem ou um conjunto de imagens em um fundo azul e com uma margem interna de 10 pixels. A largura do elemento é metade da largura do elemento pai e a altura é igual à altura do elemento pai.*/
-.img-box {
-    width: 50%;
-    height: 100%;
-    background-color: #000;
-    padding: 10px;/* o conteúdo (uma imagem) será afastado em 10 pixels de todas as bordas do elemento.*/    
-}
-
-.img-box img {
-    width: 100%;
-    height: 100%;
-     
-}
-
-.content-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;     
-}
-
-.content-box .form-box {
-    width: 50%;
-}
-
-.content-box .form-box .ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.content-box .form-box .ul li {
-    list-style: none;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    margin: 0 7px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.content-box .form-box .ul li:hover {
-    background: #e4e4e4;
-}
-
-.form-box .ul li img {
-    width: 40px;
-}
-
-.content-box .form-box h2 {
-    color: #32324f;
-    font-weight: 600;
-    font-size: 2em;
-    text-transform: uppercase;
-    margin-bottom: 15px;
+  }
+  
+  .box-one {
+    background-color: #ffffff;
+    width: 400px; /* Ajuste a largura conforme necessário */
+    height: 450px; /* Ajuste a altura conforme necessário */
+    margin: 0 auto;
+    padding: 20px;
     text-align: center;
-}
-
-.content-box .form-box .input-box {
-    margin-bottom: 20px;
-}
-
-.content-box .form-box .input-box input {
-    width: 100%;
-    padding: 10px;
-    outline: none;
-    font-weight: 400;
-    border: none;
-    font-size: 17px;
-    color: #32324f;
-    background-color: #ecf2f7;
     border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.content-box .form-box .input-box span {
-    font-size: 16px;
-    margin-bottom: 5px;
-    display: inline-block;
-    color: #32324f;
-    font-weight: 400;
-}
-
-.content-box .form-box .input-box input::placeholder {
-    color: #a9adb6;
-}
-
-.content-box .form-box .input-box input[type=submit] {
-    background: #4aa4ee;
-    color: #fff;
-    outline: none;
-    border: none;
-    font-weight: 500;
-    cursor: pointer;
-    font-size: 20px;
-    transition: 0.3s;
-}
-
-.content-box .form-box .input-box input[type=submit]:hover {
-    background: #3286ca;
-}
-
-.content-box .form-box .remember{
+  
+  .box-logo {
     margin-bottom: 20px;
-    color: #32324f;
-    font-weight: 400;
-    font-size: 14px;
+  }
+  
+  .logo-image {
+    width: 200px;
+    height: auto;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    margin-bottom: 10px;
+  }
+  
+  .form-control label {
+    display: block;
+  }
+  
+  .form-control input[type="text"],
+  .form-control input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  .remember {
+    margin-top: 10px;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4aa4ee;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-}
-
-.content-box .form-box .remember a{
-    text-decoration: none;
-    color: #4aa4ee;
-}
-.content-box .form-box .remember a:hover{
-    color: #3286ca;
-}
-
-.content-box .form-box .input-box p {
-    color: #32324f;
-}
-.content-box .form-box .input-box p a{
-    color: #4aa4ee;
-}
-
-.content-box .form-box .input-box p a:hover{
-    color: #3286ca;
-}
-.content-box .form-box h3
-{
-    color: #607d8b;
-    text-decoration: none;
-    margin: 40px 0 15px;
-    font-weight: 500;
-    text-align: center;
-    font-size: 22px;
-}
-@media (max-width:868px) {
-    .container-login .img-box{
-        display: none;
-    }
-    .container-login .content-box{
-        width: 100%;
-    }
-    .container-login .content-box .form-box{
-        width: 100%;
-        padding: 40px;
-        background: white;
-        margin: 50px;
-    } 
-    .container-login .content-box .form-box h3{
-        margin: 30px 0 10px;
-    } 
-}
-@media (max-width:450px) {
-    .container-login .content-box .form-box .remember{
-        flex-wrap: wrap;
-    }
-    .container-login .content-box .form-box .remember a{
-        margin-top: 20px;
-    }
-    
-}
+  }
+  
+  .input-box {
+    margin-top: 10px;
+  }
+  

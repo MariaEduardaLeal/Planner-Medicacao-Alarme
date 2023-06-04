@@ -75,7 +75,7 @@ $query_horario = mysqli_query($conexao, $select);
         <ul>
           <li><a href="#Diário" class="active">Diário</a></li>
           <li><a href="remedios.php">Remédios</a></li>
-          <li><a href="#Depedentes">Depedentes</a></li>
+          <li><a href="addDependente.php">Depedentes</a></li>
           <li><a href="#Sobre nós">Sobre nós</a></li>
         </ul>
       </div>
@@ -90,7 +90,7 @@ $query_horario = mysqli_query($conexao, $select);
           <!-- Conteúdo do menu dropdown -->
           <a href="perfil.php">Dados do perfil</a>
           <a href="#">Histórico</a>
-          <a href="#">Sair</a>
+          <a href="login.php">Sair</a>
         </div>
       </div>
     </div>
