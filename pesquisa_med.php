@@ -6,7 +6,7 @@ $login = $_SESSION['login'];
 
 // Obtendo o tipo de usuário do banco de dados
 $select_tipo_usuario = "SELECT id_tipo_usuario FROM me_usuario
- WHERE id_usuario = (SELECT id_usuario FROM me_login WHERE login = '$login')";
+ WHERE id_usuario IN (SELECT id_usuario FROM me_login WHERE login = '$login')";
 
 $query_tipo_usuario = mysqli_query($conexao, $select_tipo_usuario);
 $dado_tipo_usuario = mysqli_fetch_assoc($query_tipo_usuario);
