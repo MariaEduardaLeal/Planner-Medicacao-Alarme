@@ -1,69 +1,85 @@
-body {
-    background-color: #005687;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .box-one {
-    background-color: #ffffff;
-    width: 400px; /* Ajuste a largura conforme necessário */
-    height: 450px; /* Ajuste a altura conforme necessário */
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+* {
+  padding: 0%;
+  margin: 0%;
 }
 
-  
-  .box-logo {
-    margin-bottom: 20px;
-  }
-  
-  .logo-image {
-    width: 200px;
-    height: auto;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  .form-control {
-    margin-bottom: 10px;
-  }
-  
-  .form-control label {
-    display: block;
-  }
-  
-  .form-control input[type="text"],
-  .form-control input[type="password"] {
-    width: 100%;
-    padding: 5px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-  }
-  
-  .remember {
-    margin-top: 10px;
-  }
-  
-  button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #4aa4ee;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .input-box {
-    margin-top: 10px;
-  }
-  
+body {
+  background-color: #255885;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box-one {
+  background-color: #ffffff;
+  width: 500px;
+  /* Ajusta a largura conforme necessário */
+  height: 500px;
+  /* Ajusta a altura conforme necessário */
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.box-logo {
+  margin-bottom: 20px;
+}
+
+.logo-image {
+  width: 423px;
+  height: 85px;  
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.form-control label {
+  display: block;
+  font-family: Arial;
+  font-size: 24px;
+}
+
+.form-control input[type="text"],
+.form-control input[type="password"] {
+  width: 90%;
+  height: 35px;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc; 
+  background-color: #DEE3E7; 
+}
+
+.remember {
+  margin-top: 10px;
+  font-family: Arial;
+}
+
+button[type="submit"] {
+  padding: 10px 60px;
+  margin-left: 20px;
+  background-color: #255885;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Arial"; 
+  font-size: 24px;
+}
+
+
+.input-box {
+  margin-top: 10px;
+  font-family: Arial; 
+  font-size:20px;    
+}
+
+.input-box a {
+ color: #255885;
+}

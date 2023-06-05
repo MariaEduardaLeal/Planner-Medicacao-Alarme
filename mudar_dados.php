@@ -5,20 +5,20 @@ include('conexao.php');
 
 $login = $_SESSION['login'];
 
-$select_nome ="SELECT nome_usuario FROM me_usuario 
-WHERE id_usuario =(SELECT id_usuario FROM me_login WHERE login = '$login')";
+$select_nome = "SELECT nome_usuario FROM me_usuario 
+WHERE id_usuario IN (SELECT id_usuario FROM me_login WHERE login = '$login')";
 $query_nome = mysqli_query($conexao, $select_nome);
 $dado_nome = mysqli_fetch_assoc($query_nome);
 $nome = $dado_nome['nome_usuario'];
 
 $select_email = "SELECT email FROM me_usuario 
-WHERE id_usuario = (SELECT id_usuario FROM me_login WHERE login = '$login')";
+WHERE id_usuario IN (SELECT id_usuario FROM me_login WHERE login = '$login')";
 $query_email = mysqli_query($conexao, $select_email);
 $dado_email = mysqli_fetch_assoc($query_email);
 $email = $dado_email['email'];
 
 $select_senha = "SELECT senha FROM me_login
-WHERE id_usuario = (SELECT id_usuario FROM me_login WHERE login = '$login')";
+WHERE id_usuario IN (SELECT id_usuario FROM me_login WHERE login = '$login')";
 $query_senha = mysqli_query($conexao, $select_senha);
 $dado_senha = mysqli_fetch_assoc($query_senha);
 $senha = $dado_senha['senha'];
@@ -69,13 +69,38 @@ if (mysqli_num_rows($query_alarmes) > 0) {
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a class="logo" href="login.php">Planner Medicamentos</a>
-        </nav>
-    </header>
     <center>
         <div class="container">
+            <div id="nav">
+                <div id="logo">
+                    <a href="login.php">
+                        <img src="img/logo_plannermed.png">
+                    </a>
+                </div>
+
+                <div id="menu">
+                    <ul>
+                        <li><a href="principal.php">Diário</a></li>
+                        <li><a href="remedios.php">Remédios</a></li>
+                        <li><a href="addDependente.php">Depedentes</a></li>
+                        <li><a href="sobre.php">Sobre nós</a></li>
+                    </ul>
+                </div>
+                <div id="perfil">
+                    <img src="img/tentativa.png"><br><br>
+                    <label id="nome_perfil"><?php echo $login ?></label>
+                    <div class="seta">
+                        <img id="seta-img" src="img/seta-perfil.svg" alt="Seta para baixo">
+                    </div>
+
+                    <div id="menu-dropdown" style="display: none;">
+                        <!-- Conteúdo do menu dropdown -->
+                        <a href="perfil.php">Dados do perfil</a>
+                        <a href="#">Histórico</a>
+                        <a href="login.php">Sair</a>
+                    </div>
+                </div>
+            </div>
             <div class="box-one">
                 <form action="mudar_dados_scripting.php" method="post">
                     <label for="nome">Digite seu nome :</label><br>
@@ -93,20 +118,38 @@ if (mysqli_num_rows($query_alarmes) > 0) {
                     <label for="senha">Digite sua senha :</label><br><!--<label></label> serve para que ao clicar no rótulo, o elemento de formulário associado a ele também recebe foco. Isso é útil para usuários que têm dificuldade em clicar em elementos pequenos, como caixas de seleção, ou que usam leitores de tela para acessar a página.-->
                     <input type="password" name="nova_senha" id="senha" value="<?php echo $senha ?>" required><br>
 
-                    <input type="checkbox" onclick="mostrarOcultarSenha()">Mostar Senha
+                    <input type="checkbox" onclick="mostrarOcultarSenha()">Mostar Senha <br>
                     <script type="text/javascript" src="verificar_senha.js"></script>
 
                     <button type="submit" class="enviar">Enviar</button>
 
-            </form>
-            <form action="perfil.php">
-                <button type="submit" class="voltar">Voltar</button>            
+                </form>
+                <form action="perfil.php">
+                    <button type="submit" class="voltar">Voltar</button>
                 </form>
             </div>
         </div>
     </center>
 
     <script>
+      // Seleciona a imagem de seta pelo ID
+      const setaImg = document.getElementById('seta-img');
+
+      // Seleciona o menu-dropdown pelo ID
+      const menuDropdown = document.getElementById('menu-dropdown');
+
+      // Adiciona um evento de clique à imagem de seta
+      setaImg.addEventListener('click', function() {
+        // Verifica se o menu-dropdown está visível
+        const isMenuVisible = menuDropdown.style.display === 'block';
+
+        // Alterna a visibilidade do menu-dropdown
+        if (isMenuVisible) {
+          menuDropdown.style.display = 'none'; // Oculta o menu-dropdown
+        } else {
+          menuDropdown.style.display = 'block'; // Exibe o menu-dropdown
+        }
+      });
       // Supondo que o login esteja armazenado em uma variável chamada "login"
       const login = "<?php echo $_SESSION['login']; ?>";
 
@@ -114,8 +157,8 @@ if (mysqli_num_rows($query_alarmes) > 0) {
         console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
         tocarAlarmes(login);
       }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
-    </script>    
-    
+    </script>
+
 </body>
 
 </html>

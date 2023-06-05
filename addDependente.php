@@ -98,7 +98,7 @@ $dependentes = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
         <button type="submit" name="cadastrarPerfil">Cadastrar Novo Perfil de Dependente</button>
       </form>
     </div>
-          <form action="principal2.php">
+          <form action="principal.php">
             <button type="submit">Voltar</button>
           </form>
         </main>

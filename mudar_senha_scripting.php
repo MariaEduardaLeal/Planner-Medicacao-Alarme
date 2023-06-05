@@ -1,13 +1,10 @@
 <?php
 include('conexao.php');
 
-$email = isset($_POST['email'])? $_POST['email'] : '';
-$login = isset($_POST['login'])? $_POST['login'] : '';
-$senha = isset($_POST['senha'])? $_POST['senha'] : '';
-if ($email == '' || $login == '' || $login =='') { 
-    echo "<script>window.alert('Os campos são obrigatórios')</script>";
-    echo "<script>window.location.href='confirmar_dados.php'</script>";
-} else {
+$email =  $_POST['email'];
+$login = $_POST['login'];
+$senha =  $_POST['senha'];
+
     $query_verificar_usuario = $query_verificar_usuario = "SELECT * FROM me_usuario
     INNER JOIN me_login
     ON me_usuario.id_usuario = me_login.id_usuario
@@ -30,5 +27,5 @@ if ($email == '' || $login == '' || $login =='') {
         echo "<script>window.alert('Email e ou senhas inválidos')</script>";
         echo "<script>window.location.href='confirmar_dados.php'</script>";
     }
-}
+
 ?>

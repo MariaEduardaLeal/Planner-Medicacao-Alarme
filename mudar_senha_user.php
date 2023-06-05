@@ -5,13 +5,13 @@ session_start();
 $login = $_SESSION['login'];
 
 $select_email = "SELECT email FROM me_usuario 
-WHERE id_usuario = (SELECT id_usuario FROM me_login WHERE login = '$login')";
+WHERE id_usuario IN (SELECT id_usuario FROM me_login WHERE login = '$login')";
 $query_email = mysqli_query($conexao, $select_email);
 $dado_email = mysqli_fetch_assoc($query_email);
 $email = $dado_email['email'];
 
 $select_senha = "SELECT senha FROM me_login
-WHERE id_usuario = (SELECT id_usuario FROM me_login WHERE login = '$login')";
+WHERE id_usuario IN (SELECT id_usuario FROM me_login WHERE login = '$login')";
 $query_senha = mysqli_query($conexao, $select_senha);
 $dado_senha = mysqli_fetch_assoc($query_senha);
 $senha = $dado_senha['senha'];
