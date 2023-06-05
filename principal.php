@@ -113,12 +113,18 @@ $query_horario = mysqli_query($conexao, $select);
           <div class="conteudo-retangulo">
             <img id="relogio" src="img/icon-box-horario.svg">
 
-            <label id="label"><?php echo $horario; ?></label>
+            <label id="horario"><?php echo $horario; ?></label>
+
             <label class="nome_medicamento"><?php echo $nomeMedicamento; ?></label>
-            <img id="cubo" src="img/icon-dosagem.svg">
-            <label class="dosagem"><?php echo $dosagem; ?></label>
-            <img id="bucket" src="img/icon-concentracao.svg">
-            <label id="concentracao"><?php echo $concentracao; ?></label>
+
+            <div class="dosagem-concentracao">
+              <img id="cubo" src="img/icon-dosagem.svg">
+              <label class="dosagem"><?php echo $dosagem; ?></label>
+
+              <img id="bucket" src="img/icon-concentracao.svg">
+              <label id="concentracao"><?php echo $concentracao; ?></label>
+            </div>
+
             <ul id="lista" style="list-style-type: none;">
               <li style="margin-bottom: 0.4cm; text-align: right;"><a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a></li>
               <li style="margin-bottom: 0.4cm; text-align: right;"><a href="update_medicamento.php?id_horario=<?php echo $dado_horario['id_horario'] ?>&nome_medicamento=<?php echo $dado_horario['nome_medicamento'] ?>">editar medicação</a></li>

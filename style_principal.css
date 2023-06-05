@@ -169,28 +169,33 @@
   
   .retangulo {
     width: 1200px;
-    height: 100px;
+    height: auto;
     background-color: #DEE3E7;
     margin-left: 2%;
     margin-top: 1%;
-    Border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
   }
+  
+  
   
   .conteudo-retangulo {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    
   }
   
   .conteudo-retangulo img {
     width: 50px;
     height: 50px;
-    margin-right: 10px;
+    margin-right: 1%;
     margin-left: 2%;
     margin-top: 0%;
+    
   }
   
-  #label {
+  #horario {
     margin-top: 0%;
     font-size: x-large;
     font-family: arial;
@@ -200,8 +205,11 @@
   .nome_medicamento {
     margin-left: 10%;
     margin-top: -3%;
+    margin-bottom: 1%;
     font-size: medium;
+    font-size: 1rem; /* ou 16px */
     font-family: arial;
+    align-items: center;
   }
   
   #cubo {
@@ -217,6 +225,15 @@
     margin-left: -1%;
     margin-top: 2%;
     font-family: arial;
+  }
+  .dosagem-concentracao {
+    display: flex;
+    align-items: center;
+    margin-top: 4%;
+  }
+  
+  .dosagem {
+    margin-right: 10px;
   }
   
   #bucket {
@@ -235,14 +252,14 @@
   }
   
   #lista {
-    text-decoration: none;
     margin-right: 10px;
-    margin-left: 49%;
+    margin-left: 40%;
     margin-top: 1%;
-    font-family: arial;
+    font-family: Arial, sans-serif;
     font-size: smaller;
     cursor: pointer;
   }
+  
     
   .meu-botao2 {
     display: flex;

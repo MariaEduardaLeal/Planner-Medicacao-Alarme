@@ -54,6 +54,21 @@ $query_horario = mysqli_query($conexao, $select);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style_principal.css">
+  <style>
+    * {
+      margin: 0%;
+      padding: 0%;
+    }
+
+    /* Resto do seu CSS existente */
+
+    .lista-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-left: 10%; /* Valor ajustável */
+    }
+  </style>
 
 </head>
 
@@ -156,13 +171,14 @@ $query_horario = mysqli_query($conexao, $select);
             <img id="quadriculada" src="img/icon-data-termino.svg">
             <label id="final_medicacao"><?php echo date('d/m/Y', strtotime($ultima_data)); ?></label>
             <img id="ampulheta" src="img/icon-duracao.svg">
-            <label id="periodo_medicamento"><?php echo "Duração: $duracao_em_dias dias"; ?></label>
+            <label id="periodo_medicamento"><?php echo "Duração: $duracao_em_dias dias"; ?></label><br>
 
-            <ul class="links-direita">
-  <li><a href="visualizar_alarme.php?nome_med=<?php echo $nomeMedicamento ?>">Visualizar alarmes</a></li>
-  <li><a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a></li>
-  <li><a href="editar_medicamento.php?id_horario=<?php echo $dado_horario['id_horario'] ?>&nome_medicamento=<?php echo $dado_horario['nome_medicamento'] ?>">editar medicação</a></li>
-</ul>
+           <div class="lista-links">
+           <a href="visualizar_alarme.php?nome_med=<?php echo $nomeMedicamento ?>">Visualizar alarmes</a>
+            <a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a>
+           </div>
+             
+           
 
 
 

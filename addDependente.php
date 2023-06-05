@@ -67,42 +67,100 @@ $dependentes = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adicionar Dependente</title>
   <link rel="stylesheet" href="style_addDependente.css">
- 
+
 </head>
 
 <body>
   <center>
- 
-    <div class="container">
-      <div class="box-one">
-        <main>
 
-        <h2>Dependentes Cadastrados:</h2>
-    <?php foreach ($dependentes as $dependente) : ?>
-      <div class="dependente">
-        <img src="img/tentativa.png" alt="Foto do dependente">
-        <div>
-          <span><?php echo $dependente['nome_dependente']; ?></span>
-          <a class="editar_dep" href="informacao_dependente.php?id_dependente=<?php echo $dependente['id_dependente']; ?>
-          &nome_dependente=<?php echo $dependente['nome_dependente']; ?>">Acessar Dependente</a>
+    <div class="container">
+      <div id="nav">
+        <div id="logo">
+          <a href="login.php">
+            <img src="img/logo_plannermed.png">
+          </a>
+        </div>
+        <div class="mobile-menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <div id="menu">
+          <ul>
+            <li><a href="principal.php">Diário</a></li>
+            <li><a href="remedios.php">Remédios</a></li>
+            <li><a href="addDependente.php" class="active">Depedentes</a></li>
+            <li><a href="sobre.php">Sobre nós</a></li>
+          </ul>
+        </div>
+        <div id="perfil">
+          <img src="img/tentativa.png"><br><br>
+          <label id="nome_perfil"><?php echo $login ?></label>
+          <div class="seta">
+            <img id="seta-img" src="img/seta-perfil.svg" alt="Seta para baixo">
+          </div>
+
+          <div id="menu-dropdown" style="display: none;">
+            <!-- Conteúdo do menu dropdown -->
+            <a href="perfil.php">Dados do perfil</a>
+            <a href="#">Histórico</a>
+            <a href="login.php">Sair</a>
+          </div>
         </div>
       </div>
-          <?php endforeach; ?>
 
-          <div class="actions">
-      <form action="" method="POST">
-        <button type="submit" name="addPerfil">Adicionar Perfil de Dependente Ativo</button>
-      </form>
+      <div class="box-one">
 
-      <form action="" method="POST">
-        <button type="submit" name="cadastrarPerfil">Cadastrar Novo Perfil de Dependente</button>
-      </form>
-    </div>
-          <form action="principal.php">
-            <button type="submit">Voltar</button>
+        <h2>Dependentes Cadastrados:</h2><br>
+        <?php foreach ($dependentes as $dependente) : ?>
+          <div class="dependente">
+            <img src="img/tentativa.png" alt="Foto do dependente">
+            <div>
+              <span><?php echo $dependente['nome_dependente']; ?></span>
+              <a class="editar_dep" href="informacao_dependente.php?id_dependente=<?php echo $dependente['id_dependente']; ?>
+          &nome_dependente=<?php echo $dependente['nome_dependente']; ?>">Acessar Dependente</a>
+            </div>
+          </div>
+        <?php endforeach; ?>
+
+        <div class="actions">
+          <form action="" method="POST">
+            <button type="submit" name="addPerfil">Adicionar Perfil de Dependente Ativo</button>
           </form>
-        </main>
+
+          <form action="" method="POST">
+            <button type="submit" name="cadastrarPerfil">Cadastrar Novo Perfil de Dependente</button>
+          </form>
+        </div>
+        <form action="principal2.php" style="text-align: center;">
+          <button type="button" class="voltar-button" onclick="goBack()">
+            Voltar
+          </button>
+        </form>
+
         <script>
+          //Voltar para a última página acessada
+          function goBack() {
+            window.history.back();
+          }
+          // Seleciona a imagem de seta pelo ID
+          const setaImg = document.getElementById('seta-img');
+
+          // Seleciona o menu-dropdown pelo ID
+          const menuDropdown = document.getElementById('menu-dropdown');
+
+          // Adiciona um evento de clique à imagem de seta
+          setaImg.addEventListener('click', function() {
+            // Verifica se o menu-dropdown está visível
+            const isMenuVisible = menuDropdown.style.display === 'block';
+
+            // Alterna a visibilidade do menu-dropdown
+            if (isMenuVisible) {
+              menuDropdown.style.display = 'none'; // Oculta o menu-dropdown
+            } else {
+              menuDropdown.style.display = 'block'; // Exibe o menu-dropdown
+            }
+          });
           // Supondo que o login esteja armazenado em uma variável chamada "login"
           const login = "<?php echo $_SESSION['login']; ?>";
 
@@ -111,6 +169,8 @@ $dependentes = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
             tocarAlarmes(login);
           }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
         </script>
+        <script src="script_principal.js"></script>
+        <script src="script_addDependente.js"></script>
       </div>
     </div>
   </center>
