@@ -124,4 +124,31 @@
     </div>
     </center>
 </body>
+<script>
+    // Seleciona a imagem de seta pelo ID
+    const setaImg = document.getElementById('seta-img');
+
+    // Seleciona o menu-dropdown pelo ID
+    const menuDropdown = document.getElementById('menu-dropdown');
+
+    // Adiciona um evento de clique à imagem de seta
+    setaImg.addEventListener('click', function() {
+        // Verifica se o menu-dropdown está visível
+        const isMenuVisible = menuDropdown.style.display === 'block';
+
+        // Alterna a visibilidade do menu-dropdown
+        if (isMenuVisible) {
+            menuDropdown.style.display = 'none'; // Oculta o menu-dropdown
+        } else {
+            menuDropdown.style.display = 'block'; // Exibe o menu-dropdown
+        }
+    });
+    // Supondo que o login esteja armazenado em uma variável chamada "login"
+    const login = "<?php echo $_SESSION['login']; ?>";
+
+    setInterval(function() {
+        console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
+        tocarAlarmes(login);
+    }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
+</script>
 </html>
