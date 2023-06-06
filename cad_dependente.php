@@ -79,7 +79,7 @@ if (mysqli_num_rows($query_alarmes) > 0) {
                 <div id="menu-dropdown" style="display: none;">
                     <!-- Conteúdo do menu dropdown -->
                     <a href="perfil.php">Dados do perfil</a>
-                    <a href="#">Histórico</a>
+                    <a href="historico.php">Histórico</a>
                     <a href="login.php">Sair</a>
                 </div>
             </div>

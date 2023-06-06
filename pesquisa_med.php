@@ -25,9 +25,6 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
 </head>
 
 <body>
-    <!-- // if ($id_tipo_usuario == 1) {
-    // echo '<li><a href="addMedicamento.php">Não encontrei o que estou procurando</a></li>';
-    // } -->
     <div id="nav">
         <div id="logo">
             <a href="login.php">

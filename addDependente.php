@@ -103,7 +103,7 @@ $dependentes = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
           <div id="menu-dropdown" style="display: none;">
             <!-- Conteúdo do menu dropdown -->
             <a href="perfil.php">Dados do perfil</a>
-            <a href="#">Histórico</a>
+            <a href="historico.php">Histórico</a>
             <a href="login.php">Sair</a>
           </div>
         </div>

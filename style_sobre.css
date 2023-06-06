@@ -1,0 +1,478 @@
+body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  #nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F2F2F2;
+    grid-area: nav;
+  }
+  #logo img {
+    height: 70px;
+    width: 300px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  #menu {
+    height: 100px;
+  }
+  /* Estilos para o menu-dropdown */
+  #menu-dropdown {
+    position: absolute;
+    top: 150px;
+    right: 200px;
+    background-color: #255885;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+  }
+  
+  #menu-dropdown a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 8px;
+  }
+  
+  #menu-dropdown a:hover {
+    background-color: #E2E2E2;
+  }
+  
+  #menu a {
+    text-decoration: none;
+    font-size: 22px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 15px;
+    color: black;
+    text-align: center;
+    font-family: arial;
+    position: relative;
+  }
+  
+  #menu a:hover {
+    background-color: lightslategray;
+    color: white;
+  }
+  
+  .menu ul a::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-image: linear-gradient(to right, rgb(228, 19, 19), rgb(34, 200, 34), rgb(14, 14, 184));
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+  }
+  
+  #menu ul {
+    display: flex;
+    justify-content: flex;
+    align-items: center;
+  }
+  
+  #menu ul li {
+    margin-top: 20px;
+    list-style: none;
+  }
+  
+  #menu ul li {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 15px;
+    font-family: arial;
+    cursor: pointer;
+    font-size: xx-large;
+  }
+  
+  .container #menu ul li a.active {
+    background-color: #DEE3E7;
+  }
+  
+  #perfil img {
+    height: 70px;
+    width: 70px;
+    right: 10%;
+    top: 3%;
+    position: absolute;
+  }
+  
+  #nome_perfil {
+    font-family: arial;
+    position: absolute;
+    top: 10%;
+    right: 9%;
+    font-size: larger;
+  }
+  
+  .seta {
+    position: absolute;
+    right: 10%;
+    top: 12%;
+    cursor: pointer;
+  }
+  
+  #main {
+    background-color: #F2F2F2;
+    grid-area: main;
+  
+  }
+  
+  #main a {
+    text-decoration: none;
+  }
+  
+  .meu-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #255885;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 1%;
+    margin-left: 2%;
+    cursor: pointer;
+  }
+  
+  .conteudo-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .conteudo-botao img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+  .conteudo-botao span {
+    font-weight: bold;
+    font-size: small;
+  }
+  
+  .editar_dep {
+    color: #000000; /* Defina a cor desejada para os links */
+  }
+  
+  
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  #nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F2F2F2;
+    grid-area: nav;
+  }
+  
+  #logo img {
+    height: 70px;
+    width: 300px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para o menu-dropdown */
+  #menu-dropdown {
+    position: absolute;
+    top: 150px;
+    right: 200px;
+    background-color: #255885;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+  }
+  
+  #menu-dropdown a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 8px;
+  }
+  
+  #menu-dropdown a:hover {
+    background-color: #E2E2E2;
+  }
+  
+  #menu a {
+    text-decoration: none;
+    font-size: 22px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 15px;
+    color: black;
+    text-align: center;
+    font-family: arial;
+    position: relative;
+  }
+  
+  #menu a:hover {
+    background-color: lightslategray;
+    color: white;
+  }
+  
+  #menu ul a::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: rgba(rgb(228, 19, 19), rgb(34, 200, 34), rgb(14, 14, 184), alpha);
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+  }
+  
+  #menu ul {
+    display: flex;
+    justify-content: flex;
+    align-items: center;
+  }
+  
+  #menu ul li {
+    margin-top: 20px;
+    list-style: none;
+  }
+  
+  #menu ul li {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 15px;
+    font-family: arial;
+    cursor: pointer;
+    font-size: xx-large;
+  }
+  
+  .container #menu ul li a.active {
+    background-color: #DEE3E7;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: #07a3ce;
+    height: 10vh;
+  }
+  
+  /*.box está referenciando a box criada em style_alarme.php que possui todos os elementos abaixo de nav dentro dela que esta dentro de um container */
+  .box {
+    width: 100px;
+    /*largura maxima da tela na parte onde esta os inputs e botões*/
+    height: 100px;
+    /*altura maxima da tela na parte onde esta os inputs e botões*/
+  }
+  
+   /* Adicione estas classes no seu arquivo style_sobre.css */
+
+   .box-one {
+    display: inline-block;
+    flex-direction: row;
+    
+  }
+
+  .quem-somos-e-objetivos img {
+    display: inline;
+    margin-top: 1%;
+    align-items: left;
+    margin-left: 3%;
+    width: 4%; /* Ajuste o tamanho da imagem conforme necessário */
+  } 
+
+  #imagens {
+    margin-top: 2%;
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+    margin-right: 10px;
+    width: 4%;
+    margin-left: 3%;
+  }
+  
+  #nois{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2%;
+    margin-top: 4.2%;
+    color: #255885;
+  }
+
+  #objetivos{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2.5%;
+    margin-top: 4.2%;
+    color: #255885;
+  }
+
+  #contatos {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2%;
+    margin-top: 4.2%;
+    color: #255885;
+  }
+
+  .box-one span{
+    margin-top: 1%;
+    margin-left: 4%;
+  }
+ 
+.box-one p{
+    margin-top: 1%;
+    margin-left: 10%;
+    margin-right: 20%;
+}
+
+.box-lista{
+    display: flex;
+    margin-top: 1%;
+  }
+
+  .box-lista img{
+    height: 30%;
+  }
+  .box-lista ul{
+    margin-top: 5%;
+    margin-left: 7%;
+  }
+ 
+  .box-lista a{
+    color: #000000;
+  }
+  .box-lista a:hover{
+    color: #24434e;
+  }
+  .nome {
+    white-space: nowrap;
+}
+
+.foto-perfil img{
+  display: inline-block;
+  vertical-align: left;
+  height: 30%;
+  width: 30%;
+}
+
+ .nome img{
+    width: 40%;
+ }
+
+  .lista-contato{
+    margin-top: .4%;
+    margin-left: 5%;
+    list-style: none;
+    display: inline;
+  }
+
+  
+  button[type=submit],
+  button[type="button"] {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: #4aa4ee;
+    border: none;    
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"]:hover,
+  button[type="button"]:hover {
+    background-color: #0062cc;
+  }
+  
+  
+  form:last-of-type button[type="submit"]:hover {
+    background-color: #24434e;
+  }
+  
+  /* Define um estilo para os botões */
+  button {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+
+  
+  @media(max-width: 999px) {
+    body {
+      overflow-x: hidden;
+    }
+  
+    .menu ul {
+      position: fixed;
+      top: 5px;
+      right: 0px;
+      width: 70%;
+      height: 80vh;
+      background: #F2F2F2;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in;
+      z-index: 999;
+    } 
+  
+    .menu li {
+      margin-left: 0;
+      opacity: 0;
+    }
+  
+    .mobile-menu {
+      display: block;
+    }
+  
+    .menu.active {
+      transform: translateX(0);
+    }
+  
+    @keyframes navLinkFade {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+  
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  
+    .mobile-menu.menu.active .line1 {
+      transform: rotate(-45deg) translate(-8px, 8px);
+    }
+  
+    .mobile-menu.menu.active .line2 {
+      opacity: 0;
+    }
+  
+    .mobile-menu.menu.active .line3 {
+      transform: rotate(45deg) translate(-5px, -7px);
+    }
+  
+  }

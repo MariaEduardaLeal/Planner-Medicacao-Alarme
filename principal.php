@@ -89,7 +89,7 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
               if ($id_tipo_usuario == 1) {
           echo '<li><a href="addDependente.php">Depedentes</a></li>';
             } ?>
-          <li><a href="#Sobre nós">Sobre nós</a></li>
+          <li><a href="sobre.php">Sobre nós</a></li>
         </ul>
       </div>
       <div id="perfil">
@@ -102,7 +102,7 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
         <div id="menu-dropdown" style="display: none;">
           <!-- Conteúdo do menu dropdown -->
           <a href="perfil.php">Dados do perfil</a>
-          <a href="#">Histórico</a>
+          <a href="historico.php">Histórico</a>
           <a href="login.php">Sair</a>
         </div>
       </div>

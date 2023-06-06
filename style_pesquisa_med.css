@@ -1,17 +1,21 @@
+body {
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 * {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
-  margin-top: 0%;
-  display: grid;
-  height: 100vh;
-  grid-template-columns: 0.7fr 1.1fr 1.1fr;
-  grid-template-rows: 0.4fr 2.5fr;
-  grid-template-areas: "nav nav nav" "main main main";
+a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
 }
-
 #nav {
   display: flex;
   justify-content: space-between;
@@ -19,14 +23,15 @@
   background-color: #F2F2F2;
   grid-area: nav;
 }
-
 #logo img {
   height: 70px;
   width: 300px;
   margin-left: 20px;
   cursor: pointer;
 }
-
+#menu {
+  height: 100px;
+}
 /* Estilos para o menu-dropdown */
 #menu-dropdown {
   position: absolute;
@@ -66,11 +71,11 @@
   color: white;
 }
 
-#menu ul a::after {
+.menu ul a::after {
   content: "";
   width: 100%;
   height: 4px;
-  background-color: rgba(rgb(228, 19, 19), rgb(34, 200, 34), rgb(14, 14, 184), alpha);
+  background-image: linear-gradient(to right, rgb(228, 19, 19), rgb(34, 200, 34), rgb(14, 14, 184));
   position: absolute;
   bottom: 0%;
   left: 0%;
@@ -119,13 +124,14 @@
 .seta {
   position: absolute;
   right: 10%;
-  top: 11%;
+  top: 10%;
   cursor: pointer;
 }
 
 #main {
   background-color: #F2F2F2;
   grid-area: main;
+
 }
 
 #main a {
@@ -139,7 +145,8 @@
   background-color: #255885;
   color: white;
   border: none;
-  padding: 10px 10px;
+  padding: 10px 20px;
+  font-size: 16px;
   border-radius: 5px;
   margin-top: 1%;
   margin-left: 2%;
@@ -153,67 +160,98 @@
 }
 
 .conteudo-botao img {
-  width: 35px;
-  height: 33px;
+  width: 30px;
+  height: 30px;
   margin-right: 10px;
 }
-
-.conteudo-botao span {
-  font-weight: bold;
-  font-size: small;
-  font-size: 20px;
+.box-one {
+  margin-top: 3%;
 }
-
-table {
-  width: 100%;
-  max-width: 800px;
-  margin: 20px auto;
-  border-collapse: collapse;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-}
-
-thead th {
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tbody td {
-  border: 1px solid #ddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
 a {
-  color: #007bff;
+  color: #ffffff;
   text-decoration: none;
+  transition: 0.3s;
 }
 
-button[type=submit],
-button[type="button"] {
-  margin-top: 1%;
-  margin-bottom: 1%;
-  background-color: #4aa4ee;
-  border: none;    
-  color: #fff;
-  padding: 8px 16px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 4px;
+a:hover {
+  opacity: 0.7;
 }
 
+.logo {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  
+  
+}
 
-button:hover {
-  background-color: #0062cc;
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #07a3ce;
+  height: 10vh;
 }
-.voltar-button {
-  display: block;
-  margin: 0 auto;
-  margin-top: 20px;
+.nav-list {
+  list-style: none;
+  display: flex;
 }
+
+.nav-list li {
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+
+nav a{
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  
+  thead th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tbody td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }  
+
+  button[type=submit] {
+    margin-top: 1%;
+    background-color: #4aa4ee;
+    border: none;    
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #0062cc;
+  }
+  
