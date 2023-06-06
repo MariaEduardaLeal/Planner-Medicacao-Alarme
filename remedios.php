@@ -42,6 +42,14 @@ $select = "SELECT me_horario.*, me_medicamento.nome_medicamento
 
 $query_horario = mysqli_query($conexao, $select);
 
+// Obtendo o tipo de usuário do banco de dados
+$select_tipo_usuario = "SELECT id_tipo_usuario FROM me_usuario
+ WHERE id_usuario IN (SELECT id_usuario FROM me_login WHERE login = '$login')";
+
+$query_tipo_usuario = mysqli_query($conexao, $select_tipo_usuario);
+$dado_tipo_usuario = mysqli_fetch_assoc($query_tipo_usuario);
+
+$id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
 
 ?>
 
@@ -53,7 +61,7 @@ $query_horario = mysqli_query($conexao, $select);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="style_principal.css">
+  <link rel="stylesheet" href="style_remedios.css">
   <style>
     * {
       margin: 0%;
@@ -66,7 +74,8 @@ $query_horario = mysqli_query($conexao, $select);
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      margin-left: 10%; /* Valor ajustável */
+      margin-left: 10%;
+      /* Valor ajustável */
     }
   </style>
 
@@ -84,7 +93,10 @@ $query_horario = mysqli_query($conexao, $select);
         <ul>
           <li><a href="principal.php">Diário</a></li>
           <li><a href="#Remédios" class="active">Remédios</a></li>
-          <li><a href="addDependente.php">Depedentes</a></li>
+          <?php
+          if ($id_tipo_usuario == 1) {
+            echo '<li><a href="addDependente.php">Depedentes</a></li>';
+          } ?>
           <li><a href="Sobre_nos.php">Sobre nós</a></li>
         </ul>
       </div>
@@ -106,7 +118,12 @@ $query_horario = mysqli_query($conexao, $select);
       <button class="meu-botao" onclick="window.location.href = 'principal2.php'">
         <div class="conteudo-botao">
           <img src="img/icon-button-adicionar-alarme.svg">
-          <span>Adicionar medicação</span>
+          <?php
+          if ($id_tipo_usuario == 1) {
+            echo '<span>Adicionar medicação</span>';
+          } else {
+            echo '<span>Pesquisar Medicação</span>';
+          } ?>
         </div>
       </button>
       <?php
@@ -155,32 +172,36 @@ $query_horario = mysqli_query($conexao, $select);
         $data_inicio = new DateTime($primeira_data);
         $data_fim = new DateTime($ultima_data);
         $intervalo = $data_inicio->diff($data_fim);
-        $duracao_em_dias = $intervalo->days + 1; // +1 para incluir o último dia
+        $duracao_em_dias = $intervalo->days + 2; // +1 para incluir o último dia
       ?>
 
         <div class="retangulo">
           <div class="conteudo-retangulo">
+
             <img id="box_azul" src="img/icon-box-medicacao.svg">
             <label id="nome_remedio"><?php echo $nomeMedicamento ?></label>
-            <img id="cubo_duplo" src="img/icon-dosagem.svg">
-            <label id="dosagem"><?php echo $dosagem ?></label>
-            <img id="bucket" src="img/icon-concentracao.svg">
-            <label id="concentracao"><?php echo $concentracao ?></label>
+
+            <div class="dosagem-concentracao">
+              <img id="cubo" src="img/icon-dosagem.svg">
+              <label class="dosagem"><?php echo $dosagem; ?></label>
+
+              <img id="bucket" src="img/icon-concentracao.svg">
+              <label id="concentracao"><?php echo $concentracao; ?></label>
+            </div>
+
             <img id="bandeira" src="img/icon-data-inicio.svg">
             <label id="inicio_medicacao"><?php echo date('d/m/Y', strtotime($primeira_data)); ?></label>
+
             <img id="quadriculada" src="img/icon-data-termino.svg">
             <label id="final_medicacao"><?php echo date('d/m/Y', strtotime($ultima_data)); ?></label>
+
             <img id="ampulheta" src="img/icon-duracao.svg">
             <label id="periodo_medicamento"><?php echo "Duração: $duracao_em_dias dias"; ?></label><br>
 
-           <div class="lista-links">
-           <a href="visualizar_alarme.php?nome_med=<?php echo $nomeMedicamento ?>">Visualizar alarmes</a>
-            <a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a>
-           </div>
-             
-           
-
-
+            <div class="lista-links">
+              <a href="visualizar_alarme.php?nome_med=<?php echo $nomeMedicamento ?>">Visualizar alarmes</a>
+              <a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a>
+            </div>
 
             <div class="linha">
 
@@ -193,14 +214,22 @@ $query_horario = mysqli_query($conexao, $select);
         </div>
       <?php   } ?>
 
+      <div id="footer">
       <div id="main2">
-        <button class="meu-botao2" onclick="window.location.href = 'principal2.php'">
+      <button class="meu-botao2" onclick="window.location.href = 'principal2.php'">
           <div class="conteudo-botao2">
             <img src="img/icon-button-adicionar-alarme.svg">
-            <span>Adicionar medicação</span>
+            <?php
+            if ($id_tipo_usuario == 1) {
+              echo '<span>Adicionar medicação</span>';
+            } else {
+              echo '<span>Pesquisar Medicação</span>';
+            } ?>
+
           </div>
         </button>
       </div>
+    </div>
     </div>
     <script>
       // Seleciona a imagem de seta pelo ID

@@ -19,7 +19,6 @@
                 </a>
             </div>
 
-            <h1>Cadastro</h1>
             <div id="formulario_de_cadastro">
 
                 <form action="cadastro_scripting.php" id="form_cad" method="post">

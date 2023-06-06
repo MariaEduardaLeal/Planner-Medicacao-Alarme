@@ -39,7 +39,10 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
             <ul>
                 <li><a href="principal.php" class="active">Diário</a></li>
                 <li><a href="remedios.php">Remédios</a></li>
-                <li><a href="addDependente.php">Depedentes</a></li>
+                <?php
+                if ($id_tipo_usuario == 1) {
+                    echo '<li><a href="addDependente.php">Depedentes</a></li>';
+                } ?>
                 <li><a href="sobre.php">Sobre nós</a></li>
             </ul>
         </div>

@@ -13,7 +13,7 @@
       "main main main"
       "footer footer footer";
   }
-  
+
   #nav {
     display: flex;
     justify-content: space-between;
@@ -293,7 +293,10 @@
     font-weight: bold;
     font-size: small;  
   }
-  
+  .lista-links a:hover{
+    background-color: #0081cc;
+  }
+
   #footer {
     background-color: #F2F2F2;
     grid-area: footer;

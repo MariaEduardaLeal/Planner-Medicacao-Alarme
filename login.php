@@ -17,7 +17,7 @@
                     <img src="img/logo_plannermed.png" class="logo-image">
                 </a>
             </div>
-            
+
             <div id="formulario_de_cadastro">
                 <form action="autenticar.php" id="form_login" method="post">
                     <div class="form-control">
@@ -41,7 +41,8 @@
                     </div>
                     <br><button type="submit">Conectar</button>
                     <div class="input-box">
-                        <br><p>Não possui conta? <a href="cadastro.php" style="color: #255885;">Criar conta</a></p>
+                        <br>
+                        <p>Não possui conta? <a class="criar_conta" href="cadastro.php" style="color: #255885;">Criar conta</a></p>
                     </div>
                 </form>
             </div>

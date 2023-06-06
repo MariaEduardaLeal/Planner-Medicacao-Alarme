@@ -132,11 +132,11 @@ $dependentes = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
             <button type="submit" name="cadastrarPerfil">Cadastrar Novo Perfil de Dependente</button>
           </form>
         </div>
-        <form action="principal2.php" style="text-align: center;">
+       
           <button type="button" class="voltar-button" onclick="goBack()">
             Voltar
           </button>
-        </form>
+        
 
         <script>
           //Voltar para a última página acessada

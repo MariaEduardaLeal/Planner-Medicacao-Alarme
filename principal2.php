@@ -35,6 +35,15 @@ if (mysqli_num_rows($query_alarmes) > 0) {
   // Se não houver alarmes no horário atual, agendamos a próxima verificação em 1 minuto
   echo "<script>setTimeout(function() { location.reload(); }, 60000);</script>";
 }
+
+// Obtendo o tipo de usuário do banco de dados
+$select_tipo_usuario = "SELECT id_tipo_usuario FROM me_usuario
+ WHERE id_usuario IN (SELECT id_usuario FROM me_login WHERE login = '$login')";
+
+$query_tipo_usuario = mysqli_query($conexao, $select_tipo_usuario);
+$dado_tipo_usuario = mysqli_fetch_assoc($query_tipo_usuario);
+
+$id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
 ?>
 
 
@@ -63,7 +72,10 @@ if (mysqli_num_rows($query_alarmes) > 0) {
         <ul>
           <li><a href="principal.php">Diário</a></li>
           <li><a href="remedios.php">Remédios</a></li>
-          <li><a href="addDependente.php">Depedentes</a></li>
+          <?php
+          if ($id_tipo_usuario == 1) {
+            echo '<li><a href="addDependente.php">Depedentes</a></li>';
+          } ?>
           <li><a href="sobre.php">Sobre nós</a></li>
         </ul>
       </div>
@@ -90,9 +102,13 @@ if (mysqli_num_rows($query_alarmes) > 0) {
         <br>
         <button type="submit" name="submit">Pesquisar</button>
       </form>
-      <form action="addMedicamento.php">
-        <button type="submit" name="submit">Adicionar medicamento não encontrado</button>
-      </form>
+      <?php
+      if ($id_tipo_usuario == 1) {
+        echo '<form action="addMedicamento.php">';
+          echo '<button type="submit" name="submit">Adicionar medicamento não encontrado</button>';
+        echo '</form>';
+      }
+      ?>
     </div>
 
   </div>

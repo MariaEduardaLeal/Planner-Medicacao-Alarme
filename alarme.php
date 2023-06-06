@@ -66,8 +66,9 @@ $resultado = mysqli_query($conexao, $consulta);
                 <form action="alarme_scripting.php" method="post" onsubmit="redirecionar()">
                     <input type="hidden" name="nome_medicamento" value="<?php echo $nome_medicamento ?>">
 
-                    <label>Escolha seu usuário</label>
+                    <label>Escolha seu usuário</label><br>
                     <select name="opcao" required>
+                        <option value="">Selecione o usuário que deseja cadastrar o alarme</option>
                         <?php
                         // Loop através dos resultados e exibe cada dependente como uma opção no select
                         while ($row = mysqli_fetch_assoc($resultado)) { ?>

@@ -72,8 +72,15 @@ button[type="submit"] {
   font-family: "Arial"; 
   font-size: 24px;
 }
-
-
+button[type="submit"]:hover {
+  background-color: #0081cc;
+}
+.remember a:hover{
+  background-color: #0081cc;
+}
+.criar_conta:hover {
+  background-color: #0081cc;
+}
 .input-box {
   margin-top: 10px;
   font-family: Arial; 

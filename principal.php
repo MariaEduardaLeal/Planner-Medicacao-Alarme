@@ -48,6 +48,16 @@ $select = "SELECT me_horario.*, me_medicamento.nome_medicamento
 
 $query_horario = mysqli_query($conexao, $select);
 
+// Obtendo o tipo de usuário do banco de dados
+$select_tipo_usuario = "SELECT id_tipo_usuario FROM me_usuario
+ WHERE id_usuario IN (SELECT id_usuario FROM me_login WHERE login = '$login')";
+
+$query_tipo_usuario = mysqli_query($conexao, $select_tipo_usuario);
+$dado_tipo_usuario = mysqli_fetch_assoc($query_tipo_usuario);
+
+$id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
+
+
 ?>
 
 
@@ -75,7 +85,10 @@ $query_horario = mysqli_query($conexao, $select);
         <ul>
           <li><a href="#Diário" class="active">Diário</a></li>
           <li><a href="remedios.php">Remédios</a></li>
-          <li><a href="addDependente.php">Depedentes</a></li>
+          <?php
+              if ($id_tipo_usuario == 1) {
+          echo '<li><a href="addDependente.php">Depedentes</a></li>';
+            } ?>
           <li><a href="#Sobre nós">Sobre nós</a></li>
         </ul>
       </div>
@@ -96,9 +109,14 @@ $query_horario = mysqli_query($conexao, $select);
     </div>
     <div id="main">
       <button class="meu-botao" onclick="window.location.href ='principal2.php'">
-        <div class="conteudo-botao">
-          <img src="img/alarm_add_black_24dp.svg">
-          <span>Adicionar Medicação</span>
+      <div class="conteudo-botao">
+          <img src="img/icon-button-adicionar-alarme.svg">
+          <?php
+          if ($id_tipo_usuario == 1) {
+            echo '<span>Adicionar medicação</span>';
+          } else {
+            echo '<span>Pesquisar Medicação</span>';
+          } ?>
         </div>
       </button>
       <?php
@@ -126,9 +144,15 @@ $query_horario = mysqli_query($conexao, $select);
             </div>
 
             <ul id="lista" style="list-style-type: none;">
-              <li style="margin-bottom: 0.4cm; text-align: right;"><a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a></li>
-              <li style="margin-bottom: 0.4cm; text-align: right;"><a href="update_medicamento.php?id_horario=<?php echo $dado_horario['id_horario'] ?>&nome_medicamento=<?php echo $dado_horario['nome_medicamento'] ?>">editar medicação</a></li>
-              <li style="margin-bottom: 0.4cm; text-align: right;"> <a href="excluir_medicamento.php?id_horario=<?php echo $dado_horario['id_horario'] ?>">excluir medicação</a></li>
+              <li style="margin-bottom: 0.4cm; text-align: right;">
+                <a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a>
+              </li>
+              <?php
+              if ($id_tipo_usuario == 1) {
+                echo '<li style="margin-bottom: 0.4cm; text-align: right;">
+            <a href="update_medicamento.php?id_horario=' . $dado_horario['id_horario'] . '&nome_medicamento=' . $dado_horario['nome_medicamento'] . '">editar medicação</a></li>';
+                echo '<li style="margin-bottom: 0.4cm; text-align: right;"> <a href="excluir_medicamento.php?id_horario=' . $dado_horario['id_horario'] . '">excluir medicação</a></li>';
+              } ?>
             </ul>
 
           </div>
@@ -137,10 +161,16 @@ $query_horario = mysqli_query($conexao, $select);
     </div>
     <div id="footer">
       <div id="main2">
-        <button class="meu-botao" onclick="window.location.href ='principal2.php'">
-          <div class="conteudo-botao">
-            <img src="img/alarm_add_black_24dp.svg">
-            <span>Adicionar Medicação</span>
+      <button class="meu-botao2" onclick="window.location.href = 'principal2.php'">
+          <div class="conteudo-botao2">
+            <img src="img/icon-button-adicionar-alarme.svg">
+            <?php
+            if ($id_tipo_usuario == 1) {
+              echo '<span>Adicionar medicação</span>';
+            } else {
+              echo '<span>Pesquisar Medicação</span>';
+            } ?>
+
           </div>
         </button>
       </div>
