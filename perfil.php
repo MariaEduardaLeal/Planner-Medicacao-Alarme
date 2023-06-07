@@ -50,6 +50,16 @@ $query_tipo_usuario = mysqli_query($conexao, $select_tipo_usuario);
 $dado_tipo_usuario = mysqli_fetch_assoc($query_tipo_usuario);
 
 $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
+
+if ($id_tipo_usuario == 1) {
+    // Consulta SQL para obter os dependentes associados ao login
+    $consulta = "SELECT d.nome_dependente, d.id_dependente 
+FROM me_dependente d
+INNER JOIN me_login l ON l.id_usuario = d.id_usuario
+WHERE l.login = '$login'";
+    $resultado = mysqli_query($conexao, $consulta);
+    $dependentes = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+}
 ?>
 
 <!DOCTYPE html>
@@ -99,9 +109,11 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
                 </div>
             </div>
         </div>
+        <center>
         <div class="box-one">
+            
             <h1>Aqui estão suas informações pessoais</h1>
-            <table>
+            <table class="my-table">
                 <tr>
                     <th>nome</th>
                     <th>Email</th>
@@ -116,30 +128,40 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
             <?php
             if ($id_tipo_usuario == 1) {
                 echo '<form action="mudar_dados.php">';
-                    echo '<button type="submit">Mudar dados</button>';
+                echo '<button type="submit">Mudar dados</button>';
                 echo '</form>';
             }
-           
+
             ?>
             <form action="visualizar_alarme.php">
                 <button type="submit">Histórico</button>
-            </form>
-            <?php
-            echo '<form action="addDependente.php">';
-               echo '<button type="submit">Visualizar Dependentes</button>';
-            echo '</form>';
-            ?>
-            
-                <button type="submit" onclick="goBack()">Voltar</button>
-            
+            </form><br>
+
+            <?php if ($id_tipo_usuario == 1) {
+                 echo "<h2>Dependentes Cadastrados:</h2><br>";
+                foreach ($dependentes as $dependente) : ?>
+                    <div class="dependente">
+                        <img src="img/tentativa.png" alt="Foto do dependente">
+                        <div>
+                            <span><?php echo $dependente['nome_dependente']; ?></span>
+                            <a class="editar_dep" href="informacao_dependente.php?id_dependente=<?php echo $dependente['id_dependente']; ?>
+          &nome_dependente=<?php echo $dependente['nome_dependente']; ?>">Acessar Dependente</a>
+                        </div>
+                    </div>
+            <?php endforeach;
+            } ?> <br>
+
+            <button type="submit" onclick="goBack()">Voltar</button>
+
         </div>
+        </center>
     </div>
 
     <script>
         //Voltar para a última página acessada
         function goBack() {
             window.history.back();
-          }
+        }
         // Seleciona a imagem de seta pelo ID
         const setaImg = document.getElementById('seta-img');
 
