@@ -195,6 +195,7 @@ body {
     }  
   
     button[type=submit] {
+      margin-top: 1%;
       background-color: #4aa4ee;
       border: none;    
       color: #fff;
@@ -202,6 +203,7 @@ body {
       font-size: 14px;
       cursor: pointer;
       border-radius: 4px;
+      margin-bottom: 3%;
     }
     
     button:hover {

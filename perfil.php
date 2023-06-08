@@ -133,7 +133,7 @@ WHERE l.login = '$login'";
             }
 
             ?>
-            <form action="visualizar_alarme.php">
+            <form action="historico.php">
                 <button type="submit">Histórico</button>
             </form><br>
 
