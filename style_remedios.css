@@ -168,7 +168,7 @@
 }
 
 .retangulo {
-  width: 1200px;
+  width: 65%;
   height: auto;
   background-color: #DEE3E7;
   margin-left: 2%;
@@ -183,6 +183,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  width: 70%;
   
 }
 
@@ -226,10 +227,11 @@
   margin-top: 2%;
   font-family: arial;
 }
-.dosagem-concentracao {
+.dosagem{
   display: flex;
   align-items: center;
   margin-top: 4%;
+  margin-left: 5%;
 }
 
 .dosagem {
@@ -260,7 +262,25 @@
   cursor: pointer;
 }
 
+.lista-alarmes{
+  margin-top: 3%;
+  margin-bottom: 3%;
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
   
+}
+.lista-alarmes ul {
+  margin-top: 40%;
+  list-style: none;
+}
+#sininho {
+  width: 25px;
+  height: 30px;
+  margin-bottom: 50%;
+  margin-right: 5%;
+  top: 40%;
+}
 .meu-botao2 {
   display: flex;
   align-items: center;
@@ -293,6 +313,10 @@
   font-weight: bold;
   font-size: small;  
 }
+.lista-links a {
+  white-space: nowrap;
+}
+
 .lista-links a:hover{
   background-color: #0081cc;
 }

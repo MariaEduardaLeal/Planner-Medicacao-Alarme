@@ -132,6 +132,7 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
 
       while ($dado_horario = mysqli_fetch_assoc($query_horario)) {
         $nomeMedicamento = $dado_horario['nome_medicamento'];
+        $horario = date('H:i', strtotime($dado_horario['horario']));
 
         // Verifica se o medicamento já existe no array de medicamentos
         if (isset($medicamentos[$nomeMedicamento])) {
@@ -150,12 +151,9 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
         // Atualiza a última data para o medicamento atual
         $medicamentos[$nomeMedicamento]['ultima_data'] = $dado_horario['horario'];
 
-        // Adiciona o horário dos alarmes ao subarray de horários do medicamento
-        $horario = date('H:i', strtotime($dado_horario['horario']));
         $medicamentos[$nomeMedicamento]['horarios'][] = $horario;
       }
 
-      // Exibe apenas o último retângulo para cada nome de medicamento
       foreach ($medicamentos as $nomeMedicamento => $medicamento) {
         // Extrai as informações do medicamento
         $primeira_data = $medicamento['primeira_data'];
@@ -172,19 +170,20 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
         $data_inicio = new DateTime($primeira_data);
         $data_fim = new DateTime($ultima_data);
         $intervalo = $data_inicio->diff($data_fim);
-        $duracao_em_dias = $intervalo->days + 2; // +1 para incluir o último dia
-      ?>
+        $duracao_em_dias = $intervalo->days + 2;
 
+        // Exibe apenas o último retângulo para cada nome de medicamento
+      ?>
         <div class="retangulo">
           <div class="conteudo-retangulo">
-
             <img id="box_azul" src="img/icon-box-medicacao.svg">
             <label id="nome_remedio"><?php echo $nomeMedicamento ?></label>
 
-            <div class="dosagem-concentracao">
+            <div class="dosagem">
               <img id="cubo" src="img/icon-dosagem.svg">
               <label class="dosagem"><?php echo $dosagem; ?></label>
-
+            </div>
+            <div class="concentracao">
               <img id="bucket" src="img/icon-concentracao.svg">
               <label id="concentracao"><?php echo $concentracao; ?></label>
             </div>
@@ -198,38 +197,44 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
             <img id="ampulheta" src="img/icon-duracao.svg">
             <label id="periodo_medicamento"><?php echo "Duração: $duracao_em_dias dias"; ?></label><br>
 
+            <div class="lista-alarmes">
+              <img src="img/icon-alarmes.svg" id="sininho">
+              <ul>
+                <?php
+                $horarios = array_unique($medicamento['horarios']); // Remove horários repetidos
+                foreach ($horarios as $horario) {
+                  echo "<li>$horario</li>";
+                }
+                ?>
+              </ul>
+            </div>
+
             <div class="lista-links">
               <a href="visualizar_alarme.php?nome_med=<?php echo $nomeMedicamento ?>">Visualizar alarmes</a>
               <a href="pesquisa_med.php?medicamento=<?php echo $nomeMedicamento; ?>">Acessar bula</a>
             </div>
 
-            <div class="linha">
-
-              <div class="divisória"></div>
-
-            </div>
-
           </div>
-
         </div>
-      <?php   } ?>
+      <?php
+      } ?>
 
       <div id="footer">
-      <div id="main2">
-      <button class="meu-botao2" onclick="window.location.href = 'principal2.php'">
-          <div class="conteudo-botao2">
-            <img src="img/icon-button-adicionar-alarme.svg">
-            <?php
-            if ($id_tipo_usuario == 1) {
-              echo '<span>Adicionar medicação</span>';
-            } else {
-              echo '<span>Pesquisar Medicação</span>';
-            } ?>
+        <div id="main2">
+          <button class="meu-botao2" onclick="window.location.href = 'principal2.php'">
+            <div class="conteudo-botao2">
+              <img src="img/icon-button-adicionar-alarme.svg">
+              <?php
+              if ($id_tipo_usuario == 1) {
+                echo '<span>Adicionar medicação</span>';
+              } else {
+                echo '<span>Pesquisar Medicação</span>';
+              } ?>
 
-          </div>
-        </button>
+            </div>
+          </button>
+        </div>
       </div>
-    </div>
     </div>
     <script>
       // Seleciona a imagem de seta pelo ID
