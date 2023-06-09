@@ -168,7 +168,7 @@ if (mysqli_num_rows($query_alarmes) > 0) {
             }
             ?>
             <form action="perfil.php" style="text-align: center;">
-                <button type="button" class="voltar-button">
+                <button type="submit" class="voltar-button">
                     Voltar
                 </button>
             </form>
