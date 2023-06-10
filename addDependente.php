@@ -66,11 +66,14 @@ $dependentes = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adicionar Dependente</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style_addDependente.css">
 
 </head>
 
 <body>
+
   <center>
 
     <div class="container">
@@ -80,11 +83,7 @@ $dependentes = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
             <img src="img/logo_plannermed.png">
           </a>
         </div>
-        <div class="mobile-menu">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
+
         <div id="menu">
           <ul>
             <li><a href="principal.php">Diário</a></li>
@@ -93,85 +92,92 @@ $dependentes = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
             <li><a href="sobre.php">Sobre nós</a></li>
           </ul>
         </div>
-        <div id="perfil">
-          <img src="img/tentativa.png"><br><br>
-          <label id="nome_perfil"><?php echo $login ?></label>
-          <div class="seta">
-            <img id="seta-img" src="img/seta-perfil.svg" alt="Seta para baixo">
-          </div>
 
-          <div id="menu-dropdown" style="display: none;">
-            <!-- Conteúdo do menu dropdown -->
-            <a href="perfil.php">Dados do perfil</a>
-            <a href="historico.php">Histórico</a>
-            <a href="login.php">Sair</a>
-          </div>
+        <div id="perfil">
+          <img src="img/icon-usuario-dependente-2.svg"><br><br>
+          <label id="nome_perfil"><?php echo $login ?></label>
+        </div>
+
+        <div id="menuUser">
+          <i id="burguer" class="material-icons" onclick="clickMenu()">menu</i>
+          <menu id="itens">
+            <ul>
+              <li><a href="perfil.php">Dados do perfil</a></li>
+              <li><a href="historico.php">Histórico</a></li>
+              <li><a href="login.php">Sair</a></li>
+            </ul>
+          </menu>
         </div>
       </div>
 
       <div class="box-one">
 
-        <h2>Dependentes Cadastrados:</h2><br>
         <?php foreach ($dependentes as $dependente) : ?>
           <div class="dependente">
-            <img src="img/tentativa.png" alt="Foto do dependente">
+            <img src="img/icon-usuario-dependente-1.svg" alt="Foto do dependente">
             <div>
               <span><?php echo $dependente['nome_dependente']; ?></span>
               <a class="editar_dep" href="informacao_dependente.php?id_dependente=<?php echo $dependente['id_dependente']; ?>
-          &nome_dependente=<?php echo $dependente['nome_dependente']; ?>">Acessar Dependente</a>
+                &nome_dependente=<?php echo $dependente['nome_dependente']; ?>">Acessar Dependente</a>
             </div>
           </div>
         <?php endforeach; ?>
-
-        <div class="actions">
-          <form action="" method="POST">
-            <button type="submit" name="addPerfil">Adicionar Perfil de Dependente Ativo</button>
-          </form>
-
-          <form action="" method="POST">
-            <button type="submit" name="cadastrarPerfil">Cadastrar Novo Perfil de Dependente</button>
-          </form>
-        </div>
-       
-          <button type="button" class="voltar-button" onclick="goBack()">
-            Voltar
-          </button>
-        
-
-        <script>
-          //Voltar para a última página acessada
-          function goBack() {
-            window.history.back();
-          }
-          // Seleciona a imagem de seta pelo ID
-          const setaImg = document.getElementById('seta-img');
-
-          // Seleciona o menu-dropdown pelo ID
-          const menuDropdown = document.getElementById('menu-dropdown');
-
-          // Adiciona um evento de clique à imagem de seta
-          setaImg.addEventListener('click', function() {
-            // Verifica se o menu-dropdown está visível
-            const isMenuVisible = menuDropdown.style.display === 'block';
-
-            // Alterna a visibilidade do menu-dropdown
-            if (isMenuVisible) {
-              menuDropdown.style.display = 'none'; // Oculta o menu-dropdown
-            } else {
-              menuDropdown.style.display = 'block'; // Exibe o menu-dropdown
-            }
-          });
-          // Supondo que o login esteja armazenado em uma variável chamada "login"
-          const login = "<?php echo $_SESSION['login']; ?>";
-
-          setInterval(function() {
-            console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
-            tocarAlarmes(login);
-          }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
-        </script>
-        <script src="script_principal.js"></script>
-        <script src="script_addDependente.js"></script>
       </div>
+      <div></div>
+
+      <div class="actions">
+
+        <form action="" method="POST">
+          <button type="submit" name="cadastrarPerfil" id="botao_superior"><img src="img/icon-button-criar-dependente.svg">Criar Dependente</button>
+        </form>
+
+        <form action="" method="POST">
+          <button type="submit" name="addPerfil" id="botao_inferior"><img src="img/icon-button-vincular-selecionar-dependente.svg">Vincula Dependente</button>
+        </form>
+
+      </div>
+
+      <script>
+        // Seleciona a imagem de seta pelo ID
+        const setaImg = document.getElementById('seta-img');
+
+        // Seleciona o menu-dropdown pelo ID
+        const menuDropdown = document.getElementById('menu-dropdown');
+
+        // Adiciona um evento de clique à imagem de seta
+        setaImg.addEventListener('click', function() {
+          // Verifica se o menu-dropdown está visível
+          const isMenuVisible = menuDropdown.style.display === 'block';
+
+          // Alterna a visibilidade do menu-dropdown
+          if (isMenuVisible) {
+            menuDropdown.style.display = 'none'; // Oculta o menu-dropdown
+          } else {
+            menuDropdown.style.display = 'block'; // Exibe o menu-dropdown
+          }
+        });
+        // Supondo que o login esteja armazenado em uma variável chamada "login"
+        const login = "<?php echo $_SESSION['login']; ?>";
+
+        setInterval(function() {
+          console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
+          tocarAlarmes(login);
+        }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
+      </script>
+
+      <script src="script_principal.js"></script>
+      <script src="script_addDependente.js"></script>
+
+      <script>
+        function clickMenu() {
+          if (itens.style.display == 'block') {
+            itens.style.display = 'none'; //se estiver visível, ao clicar oculta
+          } else {
+            itens.style.display = 'block'; //se não, revela
+          }
+        }
+      </script>
+
     </div>
   </center>
 </body>

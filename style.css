@@ -1,0 +1,197 @@
+/* geral da barra de navegação */
+
+* {
+    margin: 0%;
+    padding: 0%;
+}
+  
+  .container {
+    margin-top: 0%;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 0.7fr 1.1fr 1.1fr;
+    grid-template-rows: 0.4fr 2.2fr 0.3fr;
+    grid-template-areas: "nav nav nav"
+      "main main main"
+      "footer footer footer";
+  }
+
+  #nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F2F2F2;        
+    grid-area: nav;
+  }
+
+
+
+/* logo */
+
+#logo img {
+    height: 70px;
+    width: 300px;
+    margin-left: 20px;    
+    cursor: pointer;
+  }
+
+
+
+/* Menu navegador */
+
+#menu a {
+    text-decoration: none;
+    font-size: 22px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 15px;
+    color: black;
+    text-align: center;
+    font-family: arial;
+    position: relative;
+  }
+  
+ #menu a:hover {
+    background-color: #04D9D9;
+    color: white;
+  }
+  
+#menu ul {
+    display: flex;
+    justify-content: flex;
+    align-items: center;
+  }
+  
+#menu ul li {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 15px;
+    font-family: arial;
+    cursor: pointer;
+    font-size: xx-large;
+    margin-top: 20px;
+    list-style: none;
+  }
+  
+.container #menu ul li a.active {
+    background-color: #255885;
+    color: white;
+  }
+
+
+
+/* Usuário */
+
+#perfil img {
+    height: 100px;
+    width: 100px;
+    right: 10%;
+    top: 3%;
+    position: absolute;
+  }
+  
+#nome_perfil {
+    font-family: arial;
+    position: absolute;
+    top: 16.1%;
+    right: 13%;
+    font-size: larger;
+    font-weight: bold;
+    color: #03738C;
+  }
+
+
+
+/* Menu do usuário */
+
+menu {
+    display: none;
+    background-color: #255885;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+menu ul {
+    list-style-type: none;
+  
+  }
+  
+menu li {
+    line-height: 25px;
+  }
+  
+menu a {
+    color: white;
+    text-decoration: none;
+  }
+  
+menu a:hover {
+    color: #04D9D9;
+  }
+
+i#burguer {
+    display: block;
+    color: #255885;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 10%;
+    top: 15%;
+  }
+  
+i#burguer:hover {
+    color: #03738C;
+  }
+
+#itens {
+    position: absolute;
+    right: 7.8%;
+    top: 18.5%;
+    cursor: pointer;
+    z-index: 5;
+  }
+
+
+
+/* Corpo do site */
+
+#main {
+    background-color: #F2F2F2;
+    grid-area: main;
+  }
+  
+#main a {
+    text-decoration: none;
+  }
+
+body {
+    background-color: #F2F2F2;
+  }
+
+
+
+/* Botão */
+
+button {
+    color: #F2F2F2;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button #botaoGeral {
+    background-color: #255885;
+}
+
+button #botaoVoltarCancelar {
+    background-color: #40A8C4;
+}
+
+button #botaoGeral:hover {
+  background-color: #03738C;
+}
+
+button #botaoVoltarCancelar:hover {
+  background-color: #04D9D9;
+}
