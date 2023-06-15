@@ -55,7 +55,8 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Navbar</title>
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style_principal2.css" />
 </head>
 
@@ -82,34 +83,42 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
       <div id="perfil">
         <img src="img/tentativa.png"><br><br>
         <label id="nome_perfil"><?php echo $login ?></label>
-        <div class="seta">
-          <img id="seta-img" src="img/seta-perfil.svg" alt="Seta para baixo">
-        </div>
-
-        <div id="menu-dropdown" style="display: none;">
-          <!-- Conteúdo do menu dropdown -->
-          <a href="perfil.php">Dados do perfil</a>
-          <a href="historico.php">Histórico</a>
-          <a href="login.php">Sair</a>
+      </div> 
+      
+      <div id="menuUser">
+          <i id="burguer" class="material-icons" onclick="clickMenu()">menu</i>
+          <menu id="itens">
+            <ul>
+              <li><a href="perfil.php">Dados do perfil</a></li>
+              <li><a href="historico.php">Histórico</a></li>
+              <li><a href="login.php">Sair</a></li>
+            </ul>
+          </menu>
         </div>
       </div>
-    </div>
 
     <div class="box-one">
-      <form id="pesquisa-med" action="pesquisa_med.php" method="get">
-        <label for="medicamento">Nome do Medicamento:</label>
-        <input type="text" name="medicamento" required>
-        <br>
-        <button type="submit" name="submit">Pesquisar</button>
-      </form>
       <?php
-      if ($id_tipo_usuario == 1) {
-        echo '<form action="addMedicamento.php">';
-          echo '<button type="submit" name="submit">Adicionar medicamento não encontrado</button>';
-        echo '</form>';
-      }
+        if ($id_tipo_usuario == 1) {
+          echo '<form action="addMedicamento.php">';
+            echo '<button id="addMedicacao" type="submit" name="submit">Adicionar um medicamento</button>';
+          echo '</form>';
+        }
       ?>
-    </div>
+      <br>
+      <br>
+      
+      <form id="pesquisa-med" action="pesquisa_med.php" method="get">
+      
+      <label id="textopesquisa" for="medicamento">Pesquisar bula de medicamento na Anvisa:</label><input type="text" name="medicamento" required>
+        <button id="pesquisar" type="submit" name="submit">Pesquisar</button>                
+      </form>
+
+      
+      <form action="principal.php">
+        <button id="voltar" type="submit">Voltar</button>
+      </form>
+    </div> 
 
   </div>
 
@@ -139,6 +148,16 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
       console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
       tocarAlarmes(login);
     }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
+  </script>
+
+  <script>
+    function clickMenu() {
+      if (itens.style.display == 'block') {
+        itens.style.display = 'none'; //se estiver visível, ao clicar oculta
+      } else {
+        itens.style.display = 'block'; //se não, revela
+      }
+    }
   </script>
 
 </body>

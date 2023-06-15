@@ -160,7 +160,7 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
 
     ?>
     <form action="principal2.php" style="text-align: center;">
-        <button type="button" class="voltar-button" onclick="goBack()">
+        <br><button type="button" class="voltar-button" onclick="goBack()">
             Voltar
         </button>
     </form>

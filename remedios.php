@@ -218,52 +218,52 @@ $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
         </div>
       <?php
       } ?>
+    </div>
+    <div id="footer">
+      <div id="main2">
+        <button class="meu-botao2" onclick="window.location.href = 'principal2.php'">
+          <div class="conteudo-botao2">
+            <img src="img/icon-button-adicionar-alarme.svg">
+            <?php
+            if ($id_tipo_usuario == 1) {
+              echo '<span>Adicionar medicação</span>';
+            } else {
+              echo '<span>Pesquisar Medicação</span>';
+            } ?>
 
-      <div id="footer">
-        <div id="main2">
-          <button class="meu-botao2" onclick="window.location.href = 'principal2.php'">
-            <div class="conteudo-botao2">
-              <img src="img/icon-button-adicionar-alarme.svg">
-              <?php
-              if ($id_tipo_usuario == 1) {
-                echo '<span>Adicionar medicação</span>';
-              } else {
-                echo '<span>Pesquisar Medicação</span>';
-              } ?>
-
-            </div>
-          </button>
-        </div>
+          </div>
+        </button>
       </div>
     </div>
-    <script>
-      // Seleciona a imagem de seta pelo ID
-      const setaImg = document.getElementById('seta-img');
+  </div>
+  <script>
+    // Seleciona a imagem de seta pelo ID
+    const setaImg = document.getElementById('seta-img');
 
-      // Seleciona o menu-dropdown pelo ID
-      const menuDropdown = document.getElementById('menu-dropdown');
+    // Seleciona o menu-dropdown pelo ID
+    const menuDropdown = document.getElementById('menu-dropdown');
 
-      // Adiciona um evento de clique à imagem de seta
-      setaImg.addEventListener('click', function() {
-        // Verifica se o menu-dropdown está visível
-        const isMenuVisible = menuDropdown.style.display === 'block';
+    // Adiciona um evento de clique à imagem de seta
+    setaImg.addEventListener('click', function() {
+      // Verifica se o menu-dropdown está visível
+      const isMenuVisible = menuDropdown.style.display === 'block';
 
-        // Alterna a visibilidade do menu-dropdown
-        if (isMenuVisible) {
-          menuDropdown.style.display = 'none'; // Oculta o menu-dropdown
-        } else {
-          menuDropdown.style.display = 'block'; // Exibe o menu-dropdown
-        }
-      });
-      // Supondo que o login esteja armazenado em uma variável chamada "login"
-      const login = "<?php echo $_SESSION['login']; ?>";
+      // Alterna a visibilidade do menu-dropdown
+      if (isMenuVisible) {
+        menuDropdown.style.display = 'none'; // Oculta o menu-dropdown
+      } else {
+        menuDropdown.style.display = 'block'; // Exibe o menu-dropdown
+      }
+    });
+    // Supondo que o login esteja armazenado em uma variável chamada "login"
+    const login = "<?php echo $_SESSION['login']; ?>";
 
-      setInterval(function() {
-        console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
-        tocarAlarmes(login);
-      }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
-    </script>
-    <script src="script_principal2.js"></script>
+    setInterval(function() {
+      console.log(`Verificando alarmes às ${moment().format('YYYY-MM-DD HH:mm:ss')}`);
+      tocarAlarmes(login);
+    }, 60000); // Verificar a cada 1 minuto (60000 milissegundos)
+  </script>
+  <script src="script_principal2.js"></script>
 </body>
 
 </html>

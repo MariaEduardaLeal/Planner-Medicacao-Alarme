@@ -1,178 +1,3 @@
-* {
-  margin: 0%;
-  padding: 0%;
-}
-
-.container {
-  margin-top: 0%;
-  display: grid;
-  height: 100vh;
-  grid-template-columns: 0.7fr 1.1fr 1.1fr;
-  grid-template-rows: 0.4fr 2.5fr;
-  grid-template-areas: "nav nav nav"
-    "main main main";
-}
-
-#nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #F2F2F2;
-  grid-area: nav;
-}
-
-#logo img {
-  height: 70px;
-  width: 300px;
-  margin-left: 20px;
-  cursor: pointer;
-}
-
-/* Estilos para o menu-dropdown */
-#menu-dropdown {
-  position: absolute;
-  top: 150px;
-  right: 200px;
-  background-color: #255885;
-  border-radius: 5px;
-  padding: 10px;
-  display: none;
-}
-
-#menu-dropdown a {
-  display: block;
-  text-decoration: none;
-  color: #fff;
-  padding: 8px;
-}
-
-#menu-dropdown a:hover {
-  background-color: #E2E2E2;
-}
-
-#menu a {
-  text-decoration: none;
-  font-size: 22px;
-  margin-left: 20px;
-  margin-right: 20px;
-  padding: 15px;
-  color: black;
-  text-align: center;
-  font-family: arial;
-  position: relative;
-}
-
-#menu a:hover {
-  background-color: lightslategray;
-  color: white;
-}
-
-#menu ul a::after {
-  content: "";
-  width: 100%;
-  height: 4px;
-  background-color: rgba(rgb(228, 19, 19), rgb(34, 200, 34), rgb(14, 14, 184), alpha);
-  position: absolute;
-  bottom: 0%;
-  left: 0%;
-}
-
-#menu ul {
-  display: flex;
-  justify-content: flex;
-  align-items: center;
-}
-
-#menu ul li {
-  margin-top: 20px;
-  list-style: none;
-}
-
-#menu ul li {
-  text-decoration: none;
-  color: #fff;
-  padding: 5px 15px;
-  font-family: arial;
-  cursor: pointer;
-  font-size: xx-large;
-}
-
-.container #menu ul li a.active {
-  background-color: #DEE3E7;
-}
-#perfil img {
-  height: 70px;
-  width: 70px;
-  right: 10%;
-  top: 3%;
-  position: absolute;
-}
-
-#nome_perfil {
-  font-family: arial;
-  position: absolute;
-  top: 11%;
-  right: 9%;
-  font-size: larger;
-}
-
-.seta {
-  position: absolute;
-  right: 10%;
-  top: 11%;
-  cursor: pointer;
-}
-
-#main {
-  background-color: #F2F2F2;
-  grid-area: main;
-
-}
-
-#main a {
-  text-decoration: none;
-}
-
-.meu-botao {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #255885;
-  color: white;
-  border: none;
-  padding: 10px 10px;
-  
-  border-radius: 5px;
-  margin-top: 1%;
-  margin-left: 2%;
-  cursor: pointer;
-      
-}
-
-.conteudo-botao {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.conteudo-botao img {
-  width: 35px;
-  height: 33px;
-  margin-right: 10px;
-}
-
-.conteudo-botao span {
-  font-weight: bold;
-  font-size: small;
-  font-size: 20px;    
-}  
-
-/*.box está referenciando a box criada em style_alarme.php que possui todos os elementos abaixo de nav dentro dela que esta dentro de um container */
-.box{
-width: 100px;/*largura maxima da tela na parte onde esta os inputs e botões*/
-height: 100px;/*altura maxima da tela na parte onde esta os inputs e botões*/
-}
-
 .box-one {
   position: absolute;
   top: 50%;
@@ -184,20 +9,43 @@ height: 100px;/*altura maxima da tela na parte onde esta os inputs e botões*/
   align-items: center;
 }
 
-
-#pesquisa-med {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+#pesquisa-med  {
+  display: inline-flex;  
+  justify-content: space-between;
   align-items: center;
-  font-size: 150%;
+  width: 120%;  
+  padding-left: 10%;   
+}
+
+button#addMedicacao {
+  background-color: #255885;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: medium;
+}
+
+button#addMedicacao:hover {
+  background-color: #03738C;
+}
+
+#textopesquisa {
+  font-size: large;
+  font-family: Arial;  
+  position: flex;  
+  margin-right: 0%;
+  margin-bottom: 3%;     
 }
 
 #pesquisa-med input{
   /*Campo onde o usuario ira colocar informações pedidas e necessárias*/
   padding: 10px;
   /*padding: 10px;: Define a quantidade de espaço entre o conteúdo interno do elemento input e sua borda. Nesse caso, 10 pixels de espaço estão sendo adicionados ao redor do conteúdo interno do elemento input.*/
-  border: 1px solid #cccccc;
+  border: 1px solid #D9D9D9;
   /*border: 1px solid #cccccc;: Define a aparência da borda do elemento input. Nesse caso, a borda terá 1 pixel de largura e será sólida, com uma cor de #cccccc (um tom de cinza claro).*/
   border-radius: 5px;
   /*border-radius: 5px;: Define o raio dos cantos da borda do elemento input, permitindo arredondar suas bordas. Nesse caso, os cantos da borda serão arredondados em 5 pixels.*/
@@ -207,23 +55,43 @@ height: 100px;/*altura maxima da tela na parte onde esta os inputs e botões*/
   /*box-sizing: border-box;: Define como o tamanho do elemento é calculado, levando em consideração o seu preenchimento e borda. Nesse caso, a largura definida pelo elemento input incluirá o preenchimento e a borda, sem afetar o layout da página.*/
   margin-bottom: 20px;
   /*margin-bottom: 20px;: Define a quantidade de espaço entre o elemento input e o elemento irmão abaixo dele. Nesse caso, um espaço de 20 pixels está sendo adicionado abaixo do elemento input.*/
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  /*box-shadow para dar um efeito de sombra ao redor de elementos do tipo input*/
 }
 
-button[type="submit"] {
-  background-color: #4aa4ee;
-  color: white;
-  padding: 12px 20px;
+#pesquisar {
+  background-color: #255885;
   border: none;
-  border-radius: 4px;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: -19.5px;
+  margin-left: 10px;  
   cursor: pointer;
-  margin-top: 20px;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  font-weight: bold;
+  font-size: medium;
+  position: relative;
+  
 }
 
-button[type="submit"]:hover {
-  background-color: #0062cc;
+button#pesquisar:hover {
+  background-color: #03738C;
 }
+
+button#voltar {
+  background-color: #40A8C4;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: medium;
+}
+
+button#voltar:hover {
+  background-color: #04D9D9;
+}
+
+
 
 
