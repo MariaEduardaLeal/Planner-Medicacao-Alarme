@@ -29,16 +29,22 @@ if (mysqli_num_rows($query_alarmes) > 0) {
   while ($dado_alarme = mysqli_fetch_assoc($query_alarmes)) {
     $nomeMedicamento = $dado_alarme['nome_medicamento'];
     echo "<script>alert('Hora de tomar o remédio: $nomeMedicamento');</script>";
+    echo "<audio autoplay><source src='audio/alarme_clock_audio_ringtone.mp3' type='audio/mpeg'></audio>";
   }
 } else {
   // Se não houver alarmes no horário atual, agendamos a próxima verificação em 1 minuto
   echo "<script>setTimeout(function() { location.reload(); }, 60000);</script>";
 }
-//Vamos pegar as informações da tabela me_horario do nosso banco de dados
+
+//Pegando as informações dos horários
+// Obtém a data atual no formato do banco de dados (ano-mês-dia)
+$dataAtual = date('Y-m-d');
+
 $select = "SELECT me_horario.*, me_medicamento.nome_medicamento
             FROM me_horario
             INNER JOIN me_medicamento ON me_horario.id_medicamento = me_medicamento.id_medicamento
-            WHERE me_horario.login = '$login'";
+            WHERE me_horario.login = '$login'
+            AND DATE(me_horario.horario) = '$dataAtual'";
 
 $query_horario = mysqli_query($conexao, $select);
 
@@ -50,6 +56,7 @@ $query_tipo_usuario = mysqli_query($conexao, $select_tipo_usuario);
 $dado_tipo_usuario = mysqli_fetch_assoc($query_tipo_usuario);
 
 $id_tipo_usuario = $dado_tipo_usuario['id_tipo_usuario'];
+
 
 ?>
 
